@@ -3,7 +3,7 @@
 ## Product copy and experience
 - [x] Plain-language positioning for income planning, spending, bills and savings goals.
 - [x] Messaging for both regular and irregular earners.
-- [x] AI removed from the homepage pitch and primary navigation because it is not implemented.
+- [x] AI remains part of Payday’s public product positioning, with a dedicated page explaining planned capabilities and their current development status.
 - [x] Marketing figures and example bill dates labelled as illustrative.
 - [x] New planner defaults contain no pre-filled transactions, bills or savings goals.
 - [x] Planner empty states and placeholder identity improved.

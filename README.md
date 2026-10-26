@@ -25,6 +25,6 @@ Payday brings those everyday decisions into one place, with a focus on clarity, 
 
 ## Current product status
 
-Payday currently stores planner data in the browser on the device you use. Account sign-in, cloud synchronisation and AI-assisted features are not available yet. Do not rely on the planner as your only record for important bills or balances.
+Payday is exploring AI-assisted money insights, described on the public AI page. These capabilities are not available in the planner yet. The current planner stores data in the browser on the device you use; account sign-in and cloud synchronisation are not available yet. Do not rely on the planner as your only record for important bills or balances.
 
 Payday is a planning tool, not a bank or financial adviser. Its summaries depend on the information entered and should be checked against actual balances and obligations before making financial decisions.
