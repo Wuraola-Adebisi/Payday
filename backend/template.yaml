@@ -1,0 +1,143 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Payday authenticated personal-finance data API. Deploy only when AWS account and budget are ready.
+
+Parameters:
+  AllowedOrigin:
+    Type: String
+    Default: http://localhost:5173
+    Description: Exact frontend origin allowed to call the API. Override for the production domain at deployment.
+
+Globals:
+  Function:
+    Runtime: nodejs22.x
+    Architectures:
+      - arm64
+    MemorySize: 256
+    Timeout: 10
+    Environment:
+      Variables:
+        DATA_TABLE: !Ref PaydayDataTable
+        ALLOWED_ORIGIN: !Ref AllowedOrigin
+
+Resources:
+  PaydayUserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: payday-users
+      UsernameAttributes:
+        - email
+      AutoVerifiedAttributes:
+        - email
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 12
+          RequireLowercase: true
+          RequireNumbers: true
+          RequireSymbols: true
+          RequireUppercase: true
+      AccountRecoverySetting:
+        RecoveryMechanisms:
+          - Name: verified_email
+            Priority: 1
+
+  PaydayUserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      ClientName: payday-web
+      UserPoolId: !Ref PaydayUserPool
+      GenerateSecret: false
+      PreventUserExistenceErrors: ENABLED
+      ExplicitAuthFlows:
+        - ALLOW_USER_SRP_AUTH
+        - ALLOW_REFRESH_TOKEN_AUTH
+      AccessTokenValidity: 60
+      IdTokenValidity: 60
+      RefreshTokenValidity: 30
+      TokenValidityUnits:
+        AccessToken: minutes
+        IdToken: minutes
+        RefreshToken: days
+
+  PaydayApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: payday-data-api
+      StageName: v1
+      Cors:
+        AllowOrigin: !Sub "'${AllowedOrigin}'"
+        AllowHeaders: "'Authorization,Content-Type,If-Match'"
+        AllowMethods: "'GET,PUT,OPTIONS'"
+      Auth:
+        DefaultAuthorizer: PaydayCognitoAuthorizer
+        Authorizers:
+          PaydayCognitoAuthorizer:
+            UserPoolArn: !GetAtt PaydayUserPool.Arn
+            Identity:
+              Header: Authorization
+
+  PaydayDataTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub payday-user-data-${AWS::StackName}
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: userId
+          AttributeType: S
+        - AttributeName: recordKey
+          AttributeType: S
+      KeySchema:
+        - AttributeName: userId
+          KeyType: HASH
+        - AttributeName: recordKey
+          KeyType: RANGE
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      SSESpecification:
+        SSEEnabled: true
+
+  GetUserDataFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: src/get-data.handler
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Ref PaydayDataTable
+      Events:
+        GetUserData:
+          Type: Api
+          Properties:
+            RestApiId: !Ref PaydayApi
+            Path: /me/data
+            Method: GET
+
+  SaveUserDataFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: src/save-data.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref PaydayDataTable
+      Events:
+        SaveUserData:
+          Type: Api
+          Properties:
+            RestApiId: !Ref PaydayApi
+            Path: /me/data
+            Method: PUT
+
+Outputs:
+  ApiBaseUrl:
+    Description: Base URL for the authenticated Payday API
+    Value: !Sub https://${PaydayApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}/v1
+  UserPoolId:
+    Description: Cognito user pool ID
+    Value: !Ref PaydayUserPool
+  UserPoolClientId:
+    Description: Public web client ID. This is not a secret.
+    Value: !Ref PaydayUserPoolClient
+  DataTableName:
+    Description: DynamoDB table storing each user's planner data
+    Value: !Ref PaydayDataTable
