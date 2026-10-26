@@ -126,3 +126,96 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid 
 .info-page{background:#fffdfb;min-height:60vh;padding:30px 24px 100px}.info-page-top{max-width:1000px;margin:0 auto 44px;display:flex;gap:10px;font-size:11px;color:#827b98}.info-page-top a{color:#6246ea;font-weight:700}.info-hero{max-width:1000px;margin:0 auto;padding:40px 0 55px;border-bottom:1px solid #e4ddf4}.info-hero .section-kicker{font-size:10px}.info-hero h1{font-size:clamp(38px,6vw,66px);line-height:1.03;max-width:850px;margin:0 0 18px}.info-hero>p{font-size:15px;line-height:1.8;color:#827b98;max-width:650px;margin:0}.info-content{max-width:850px;margin:48px auto 0;font-size:14px;line-height:1.9;color:#625b77}.info-content h2{font-size:24px;line-height:1.2;color:#211b35;margin:35px 0 12px}.info-content p{margin-bottom:17px}.info-content a:not(.site-cta){color:#6246ea;text-decoration:underline;text-underline-offset:3px}.info-content li{margin:10px 0}.info-wide-image{width:100%;height:300px;object-fit:cover;border-radius:20px;margin-bottom:18px}.contact-layout{max-width:1000px;display:grid;grid-template-columns:.9fr 1.1fr;gap:55px}.contact-layout h2{margin-top:0}.contact-detail{display:flex;gap:12px;align-items:flex-start;margin-top:22px}.contact-detail>span{width:32px;height:32px;border-radius:10px;background:#eaffb8;color:#6246ea;display:grid;place-items:center;flex-shrink:0}.contact-detail strong,.contact-detail small{display:block}.contact-detail strong{font-size:12px;color:#211b35}.contact-detail small{font-size:11px;line-height:1.6;margin-top:4px}.contact-form{border:1px solid #e4ddf4;border-radius:20px;padding:24px;display:grid;gap:16px;background:#fbf9ff}.contact-form label{display:grid;gap:7px;font-size:11px;font-weight:700;color:#51486b}.contact-form input,.contact-form select,.contact-form textarea{width:100%;border:1px solid #e4ddf4;background:white;border-radius:10px;padding:12px;color:#211b35;font:inherit;font-size:12px;min-width:0}.contact-form textarea{resize:vertical}.contact-form .site-cta{justify-self:start;cursor:pointer}.form-note{font-size:10px;line-height:1.6;color:#827b98}.legal-copy{max-width:800px}.legal-copy h2{font-size:20px;margin-top:30px}.legal-updated{font-size:11px;color:#827b98}.legal-placeholder{margin-top:30px;background:#fff0e9;border:1px solid #ffd8ca;border-radius:12px;padding:15px;color:#8d442e;font-size:11px;line-height:1.7}
 @media(max-width:1000px){.site-nav{gap:18px}.hero-inner{gap:25px;padding-top:55px}.hero-copy h1{font-size:clamp(44px,6.5vw,64px)}.hero-visual{min-height:500px}.hero-dashboard{width:82%;top:95px}.hero-photo{width:60%;height:310px}.float-sticker{width:75px;height:75px;font-size:9px}.intro-section,.demo-section{padding-top:75px;padding-bottom:80px}.feature-section{gap:40px;padding-top:75px;padding-bottom:75px}.feature-visual{min-height:400px}.feature-visual>img{height:370px}.life-card{padding:18px;min-height:390px}.life-card h3{font-size:23px}}
 @media(max-width:720px){.site-header{height:67px}.site-header-inner{padding:0 17px}.site-brand{font-size:23px}.site-brand-mark{width:33px;height:33px}.header-login{display:none}.site-menu-btn{display:grid;place-items:center;width:39px;height:39px;border:1px solid #e4ddf4;border-radius:11px}.site-nav{display:none;position:absolute;top:66px;left:0;right:0;background:#fffdfb;padding:15px 18px 20px;border-bottom:1px solid #e4ddf4;box-shadow:0 15px 30px #211b3510;align-items:stretch;gap:0;flex-direction:column}.site-nav.is-open{display:flex}.site-nav>a{padding:14px 8px;border-bottom:1px solid #f0ebf7}.site-nav .site-login{display:flex;align-items:center;justify-content:space-between;color:#6246ea}.hero-inner{display:flex;flex-direction:column;align-items:stretch;padding:48px 19px 20px;gap:24px}.hero-copy h1{font-size:clamp(46px,12vw,64px);margin-bottom:20px}.hero-description{font-size:13px;line-height:1.8}.hero-actions{gap:16px}.site-cta{padding:14px 15px;font-size:11px}.hero-proof{margin-top:25px}.hero-visual{min-height:430px;width:100%;max-width:520px;margin:0 auto}.hero-photo{height:280px;width:62%;top:10px;right:2px;border-radius:21px}.hero-dashboard{width:77%;max-width:350px;left:0;top:75px;padding:15px;border-radius:19px}.mini-amount{font-size:23px}.mini-stat{padding:10px}.mini-stat strong{font-size:12px}.float-note{right:0;bottom:23px;padding:10px}.float-sticker{top:0;right:0;width:68px;height:68px;font-size:8px}.hero-bottomline{padding:0 19px 20px;font-size:8px}.ticker-strip{padding:12px 0;font-size:10px}.ticker-strip div{gap:18px;min-width:900px}.intro-section,.demo-section{padding:65px 19px}.intro-heading-row{grid-template-columns:1fr;gap:17px;margin-bottom:28px}.intro-heading-row h2,.demo-head h2{font-size:42px}.intro-heading-row>p{font-size:13px}.life-cards{grid-template-columns:1fr;gap:13px}.life-card{min-height:355px;padding:21px}.life-card h3{font-size:27px;margin-top:22px}.card-illustration{min-height:135px}.feature-section{grid-template-columns:1fr;gap:35px;padding:62px 19px}.feature-visual{min-height:350px}.feature-visual>img{width:88%;height:325px}.feature-image-label{bottom:40px}.feature-floating{right:0;bottom:0}.feature-copy h2{font-size:42px}.feature-copy>p{font-size:13px}.feature-list{gap:16px}.demo-head{display:block;margin-bottom:27px}.demo-head h2{margin-bottom:15px}.demo-head>p{font-size:12px}.demo-grid{grid-template-columns:1fr;gap:13px}.demo-card{padding:18px;border-radius:18px}.demo-card-goal{grid-column:auto;grid-template-columns:1fr}.goal-demo-top{grid-column:auto}.demo-card-goal>img{grid-row:auto;height:170px;margin-bottom:18px}.demo-card-goal h3{font-size:23px}.demo-card-main{min-height:270px}.demo-chart{gap:4px;right:15px}.demo-chart span{width:8px}.quote-section{padding:65px 20px}.quote-section blockquote{font-size:30px}.quote-doodle{right:5%;top:12%;font-size:35px}.cta-section{padding:65px 20px}.cta-content h2{font-size:42px}.cta-asterisk{right:5%;top:5%;font-size:45px}.site-footer{padding:43px 20px 20px}.site-footer-main{grid-template-columns:1fr 1fr;gap:30px 20px;padding-bottom:32px}.footer-brand-col{grid-column:1/-1}.footer-brand-col p{max-width:300px}.site-footer-bottom{font-size:9px;flex-direction:column;gap:8px}.info-page{padding:25px 19px 65px}.info-page-top{margin-bottom:27px}.info-hero{padding:25px 0 35px}.info-hero h1{font-size:42px}.info-hero>p{font-size:13px}.info-content{margin-top:32px;font-size:13px}.info-content h2{font-size:22px}.info-wide-image{height:220px}.contact-layout{grid-template-columns:1fr;gap:30px}.contact-form{padding:18px}.legal-copy h2{font-size:18px}}
+
+
+/* Readability pass: raise small text sizes and improve comfortable reading. */
+.public-site { font-size: 16px; }
+.public-site .hero-description { font-size: 17px; line-height: 1.8; }
+.public-site .hero-proof p { font-size: 13px; line-height: 1.55; }
+.public-site .hero-pill { font-size: 11px; }
+.public-site .hero-bottomline { font-size: 11px; }
+.public-site .ticker-strip { font-size: 14px; }
+.public-site .section-kicker { font-size: 12px; line-height: 1.5; }
+.public-site .intro-heading-row > p,
+.public-site .feature-copy > p { font-size: 16px; line-height: 1.8; }
+.public-site .life-card-top { font-size: 11px; }
+.public-site .life-card > p { font-size: 15px; line-height: 1.75; }
+.public-site .plan-slip { font-size: 12px; }
+.public-site .plan-slip > span { font-size: 10px; }
+.public-site .plan-slip i { flex-shrink: 0; }
+.public-site .feature-list strong { font-size: 15px; }
+.public-site .feature-list small { font-size: 14px; line-height: 1.7; }
+.public-site .demo-head > p { font-size: 15px; line-height: 1.7; }
+.public-site .demo-card-top,
+.public-site .demo-small-kicker,
+.public-site .goal-demo-top { font-size: 11px; }
+.public-site .demo-card-main > p { font-size: 14px; }
+.public-site .demo-card-foot { font-size: 13px; }
+.public-site .demo-bill > div strong { font-size: 14px; }
+.public-site .demo-bill > div small { font-size: 12px; }
+.public-site .demo-bill > b { font-size: 13px; }
+.public-site .demo-link { font-size: 13px; }
+.public-site .goal-demo-foot { font-size: 13px; }
+.public-site .quote-section > p { font-size: 11px; }
+.public-site .cta-content > p { font-size: 16px; }
+.public-site .site-cta { font-size: 14px; padding: 15px 20px; }
+.public-site .footer-brand-col p { font-size: 14px; line-height: 1.8; }
+.public-site .footer-note { font-size: 12px; }
+.public-site .footer-col h4 { font-size: 12px; }
+.public-site .footer-col a { font-size: 14px; }
+.public-site .site-footer-bottom { font-size: 12px; }
+.public-site .info-page-top { font-size: 13px; }
+.public-site .info-hero .section-kicker { font-size: 12px; }
+.public-site .info-hero > p { font-size: 17px; line-height: 1.8; }
+.public-site .info-content { font-size: 16px; line-height: 1.9; }
+.public-site .info-content h2 { font-size: 27px; }
+.public-site .contact-form label { font-size: 14px; }
+.public-site .contact-form input,
+.public-site .contact-form select,
+.public-site .contact-form textarea { font-size: 15px; padding: 14px; }
+.public-site .contact-detail strong { font-size: 15px; }
+.public-site .contact-detail small { font-size: 14px; line-height: 1.7; }
+.public-site .form-note { font-size: 12px; }
+.public-site .legal-updated { font-size: 13px; }
+.public-site .legal-copy h2 { font-size: 23px; }
+.public-site .legal-placeholder { font-size: 13px; line-height: 1.8; }
+.app .nav-item { font-size: 14px; }
+.app .nav-label { font-size: 11px; }
+.app .crumb { font-size: 14px; }
+.app .eyebrow { font-size: 11px; }
+.app .page-heading p { font-size: 16px; }
+.app .metric-top { font-size: 13px; }
+.app .metric-note { font-size: 12px; line-height: 1.5; }
+.app .panel-heading h2 { font-size: 17px; }
+.app .panel-heading p { font-size: 13px; line-height: 1.6; }
+.app .budget-head { font-size: 13px; }
+.app .budget-foot { font-size: 12px; }
+.app .activity-title { font-size: 13px; }
+.app .activity-meta { font-size: 12px; }
+.app .amount { font-size: 14px; }
+.app .text-link { font-size: 13px; }
+.app .field label { font-size: 13px; }
+.app .field input, .app .field select, .app .allocation input { font-size: 14px; }
+.app .field-hint, .app .helper { font-size: 12px; }
+.app .data-table { font-size: 13px; }
+.app .data-table th { font-size: 11px; }
+.app .pill { font-size: 11px; }
+.app .empty, .app .notice { font-size: 13px; }
+.app .goal-tile h3 { font-size: 16px; }
+.app .goal-tile p, .app .insight p { font-size: 13px; line-height: 1.7; }
+.app .insight h3 { font-size: 14px; }
+.app .modal > p { font-size: 14px; }
+.app .modal h2 { font-size: 24px; }
+.app .toast { font-size: 14px; }
+@media (max-width: 720px) {
+  .public-site .hero-description { font-size: 16px; }
+  .public-site .hero-proof p { font-size: 12px; }
+  .public-site .life-card > p { font-size: 15px; }
+  .public-site .info-hero > p { font-size: 16px; }
+  .public-site .info-content { font-size: 15px; }
+  .public-site .footer-col a { font-size: 13px; }
+  .public-site .site-footer-bottom { font-size: 11px; }
+  .app .page-heading p { font-size: 14px; }
+  .app .metric-top { font-size: 12px; }
+  .app .metric-note { font-size: 11px; }
+}
