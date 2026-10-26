@@ -219,3 +219,37 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid 
   .app .metric-top { font-size: 12px; }
   .app .metric-note { font-size: 11px; }
 }
+
+/* AI roadmap page and homepage teaser */
+.public-site .ai-teaser{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:35px;overflow:hidden;background:#fff8f1;padding:85px max(32px,calc((100vw - 1150px)/2));}
+.public-site .ai-teaser-copy{max-width:630px;position:relative;z-index:1}
+.public-site .ai-coming-pill{display:inline-flex;align-items:center;border-radius:999px;background:#e8e1ff;color:#6246ea;padding:9px 13px;font-size:12px;font-weight:800;letter-spacing:.07em}
+.public-site .ai-teaser h2{font-family:'Space Grotesk';font-size:clamp(34px,4.2vw,54px);line-height:1.07;letter-spacing:-.04em;margin:22px 0 18px;color:#211b35}
+.public-site .ai-teaser h2 em{font-style:normal;color:#6246ea}
+.public-site .ai-teaser-copy>p{font-size:17px;line-height:1.8;color:#625b77;max-width:590px;margin:0 0 25px}
+.public-site .ai-teaser-orbit{position:relative;min-height:340px;display:grid;place-items:center}
+.public-site .ai-orbit-ring{position:absolute;border:1px solid #cfc4ff;border-radius:50%;width:290px;height:290px}
+.public-site .ai-orbit-ring-two{width:220px;height:220px;border-style:dashed;border-color:#e3b6a8}
+.public-site .ai-orbit-core{position:relative;width:132px;height:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#6246ea;color:#d9ff55;border-radius:36px;transform:rotate(-7deg);font-family:'Space Grotesk';font-size:44px;font-weight:700;box-shadow:0 20px 45px #6246ea30}
+.public-site .ai-orbit-core small{font:700 10px/1.5 'DM Sans';text-align:center;color:white;letter-spacing:.08em;margin-top:5px}
+.public-site .ai-orbit-chip{position:absolute;padding:11px 15px;background:#fffdfb;border:1px solid #e4ddf4;border-radius:13px;box-shadow:0 10px 30px #211b3510;font-size:13px;font-weight:700;color:#211b35}
+.public-site .ai-chip-one{top:30px;left:4%}.public-site .ai-chip-two{right:0;top:105px;background:#d9ff55}.public-site .ai-chip-three{bottom:25px;left:13%;background:#ff896b}
+.public-site .ai-page-content{max-width:1000px}
+.public-site .ai-status-banner{display:flex;align-items:flex-start;gap:14px;padding:20px 22px;background:#f0ebff;border:1px solid #ded4ff;border-radius:17px;margin-bottom:40px;color:#51486b}
+.public-site .ai-status-dot{width:11px;height:11px;flex-shrink:0;border-radius:50%;background:#6246ea;margin-top:7px;box-shadow:0 0 0 5px #6246ea18}
+.public-site .ai-status-banner strong{display:block;color:#211b35;font-size:16px}
+.public-site .ai-status-banner p{font-size:14px;margin:5px 0 0;line-height:1.7}
+.public-site .ai-page-content>h2{margin-top:40px}
+.public-site .ai-capability-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:28px 0 40px}
+.public-site .ai-capability-card{position:relative;min-height:255px;border:1px solid #e4ddf4;border-radius:22px;padding:27px;overflow:hidden;color:#211b35}
+.public-site .ai-capability-lilac{background:#f0ebff}.public-site .ai-capability-lime{background:#efffb9}.public-site .ai-capability-peach{background:#fff0e9}.public-site .ai-capability-dark{background:#211b35;color:#fff}
+.public-site .ai-capability-number{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#fffdfb;color:#6246ea;font-size:13px;font-weight:800;margin-bottom:23px}
+.public-site .ai-capability-card h3{font-family:'Space Grotesk';font-size:24px;line-height:1.2;margin:0 0 12px}
+.public-site .ai-capability-card p{font-size:15px;line-height:1.75;margin:0 0 20px}
+.public-site .ai-capability-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:7px 10px;opacity:.8}
+.public-site .ai-page-cta{display:flex;align-items:center;justify-content:space-between;gap:25px;background:#6246ea;color:white;border-radius:22px;padding:30px;margin-top:35px}
+.public-site .ai-page-cta .section-kicker{color:#d9ff55}
+.public-site .ai-page-cta h2{color:white;margin:8px 0 10px;font-size:28px}
+.public-site .ai-page-cta p{color:#e2dcff;margin:0;max-width:570px;font-size:15px;line-height:1.7}
+.public-site .ai-disclaimer{font-size:13px;line-height:1.7;color:#827b98;margin-top:24px}
+@media(max-width:720px){.public-site .ai-teaser{grid-template-columns:1fr;padding:62px 19px 35px;gap:15px}.public-site .ai-teaser h2{font-size:39px}.public-site .ai-teaser-copy>p{font-size:16px}.public-site .ai-teaser-orbit{min-height:285px}.public-site .ai-orbit-ring{width:240px;height:240px}.public-site .ai-orbit-ring-two{width:185px;height:185px}.public-site .ai-orbit-core{width:112px;height:112px;font-size:38px}.public-site .ai-chip-one{left:0;top:20px}.public-site .ai-chip-two{right:0;top:85px}.public-site .ai-chip-three{left:5%;bottom:14px}.public-site .ai-capability-grid{grid-template-columns:1fr}.public-site .ai-capability-card{min-height:0;padding:22px}.public-site .ai-capability-card h3{font-size:23px}.public-site .ai-page-cta{align-items:flex-start;flex-direction:column;padding:23px}.public-site .ai-page-cta h2{font-size:25px}}
