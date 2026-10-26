@@ -344,3 +344,53 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
 .topbar-home-link:focus-visible{outline:2px solid var(--green);outline-offset:3px}
 .topbar-divider{height:24px;width:1px;background:var(--line);flex-shrink:0}
 @media(max-width:700px){.topbar{padding:0 16px}.topbar-left{gap:9px}.topbar-home-link{font-size:11px;padding:8px 9px;gap:5px}.topbar-divider{display:none}.crumb{display:none}.topbar-home-link span{display:inline}}
+
+
+/* Readability pass: increase body copy and small interface text across Payday. */
+body { font-size: 16px; }
+p { font-size: 16px !important; line-height: 1.7; }
+.app .page-heading p { font-size: 16px !important; line-height: 1.7; }
+.app .nav-item { font-size: 14px; }
+.app .crumb { font-size: 14px; }
+.app .top-actions select { font-size: 14px; }
+.app .eyebrow, .app .nav-label { font-size: 12px; }
+.app .metric-top { font-size: 13px; }
+.app .metric-note { font-size: 13px; line-height: 1.5; }
+.app .panel-heading h2 { font-size: 17px; }
+.app .panel-heading p { font-size: 14px !important; line-height: 1.55; }
+.app .budget-head { font-size: 13px; }
+.app .budget-foot { font-size: 12px; line-height: 1.5; }
+.app .activity-title { font-size: 14px; }
+.app .activity-meta { font-size: 13px; line-height: 1.5; }
+.app .amount { font-size: 14px; }
+.app .primary, .app .secondary { font-size: 14px; }
+.app .text-link { font-size: 13px; }
+.app .field label { font-size: 14px; }
+.app .field input, .app .field select, .app .allocation input { font-size: 15px; }
+.app .field-hint, .app .helper { font-size: 13px; line-height: 1.6; }
+.app .allocation label { font-size: 14px; }
+.app .total-row { font-size: 14px; }
+.app .data-table { font-size: 13px; }
+.app .data-table th { font-size: 12px; }
+.app .filters input, .app .filters select { font-size: 14px; }
+.app .pill { font-size: 12px; }
+.app .goal-tile p { font-size: 14px !important; line-height: 1.65; }
+.app .goal-sub, .app .goal-progress { font-size: 13px; }
+.app .insight h3 { font-size: 15px; }
+.app .insight p { font-size: 14px !important; line-height: 1.65; }
+.app .notice { font-size: 14px; line-height: 1.7; }
+.app .empty { font-size: 14px; line-height: 1.65; }
+.app .modal > p { font-size: 15px !important; line-height: 1.7; }
+.app .toast { font-size: 14px; line-height: 1.5; }
+.app .profile > div:last-child > div:first-child { font-size: 14px !important; }
+.app .profile > div:last-child > div:last-child { font-size: 13px !important; }
+@media (max-width: 700px) {
+  .app .page-heading p { font-size: 16px !important; }
+  .app .metric-top { font-size: 12px; }
+  .app .metric-note { font-size: 12px; }
+  .app .panel-heading h2 { font-size: 17px; }
+  .app .panel-heading p { font-size: 14px !important; }
+  .app .activity-title { font-size: 14px; }
+  .app .activity-meta { font-size: 13px; }
+  .app .data-table { font-size: 13px; }
+}
