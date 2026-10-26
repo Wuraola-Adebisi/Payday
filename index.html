@@ -13,7 +13,6 @@
     <link rel="canonical" href="https://www.payday.money/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Payday" />
     <meta property="og:title" content="Payday — Money stuff, a little less stressful" />
@@ -43,7 +42,7 @@
           "/app": { title: "Money Planner — Payday", description: "Organise your income, expenses, bills and savings goals in your Payday planner." }
         };
         function updateMetadata() {
-          var path = window.location.pathname.replace(/\\/+$/, "") || "/";
+          var path = window.location.pathname.replace(/\/+$/, "") || "/";
           if (path.indexOf("/app/") === 0) path = "/app";
           var data = pages[path] || pages["/"];
           document.title = data.title;
