@@ -35,9 +35,8 @@ const browserStorageProvider: PlannerDataProvider = {
     try {
       window.localStorage.setItem("payday-data-v1", JSON.stringify(data));
     } catch (error) {
-      // Browser storage can fail due to quota or browser privacy settings.
-      // Surface this in development logs without crashing the planner.
-      console.error("Payday could not save planner data to browser storage.", error);
+      // Let the app show a clear save failure instead of implying success.
+      throw error;
     }
   },
 };
