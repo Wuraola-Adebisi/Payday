@@ -23,8 +23,8 @@ A useful money plan should help you understand what needs attention, prepare for
 
 Payday brings those everyday decisions into one place, with a focus on clarity, flexibility, and real life.
 
-## Looking ahead
+## Current product status
 
-Payday is exploring AI-assisted features that may help people better understand their finances and think through their options. These capabilities are still being developed and are not currently available as part of the planner.
+Payday currently stores planner data in the browser on the device you use. Account sign-in, cloud synchronisation and AI-assisted features are not available yet. Do not rely on the planner as your only record for important bills or balances.
 
-Payday is a planning tool, not a bank or a financial adviser. The information it shows depends on the details entered by the user and should be checked against actual balances and obligations before making financial decisions.
+Payday is a planning tool, not a bank or financial adviser. Its summaries depend on the information entered and should be checked against actual balances and obligations before making financial decisions.
