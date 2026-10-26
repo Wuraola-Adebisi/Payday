@@ -335,3 +335,12 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
 .app-footer-links a:hover{color:var(--green)}
 .app-footer-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:17px 2px 0;font-size:10px;line-height:1.6}
 @media(max-width:600px){.app-footer{margin-top:30px;padding-top:22px}.app-footer-top{align-items:flex-start}.app-footer-top p{flex-basis:calc(100% - 4px);order:3}.app-footer-home{margin-left:auto}.app-footer-links{gap:20px}.app-footer-bottom{display:grid;gap:5px}}
+
+
+/* Keep the exit back to the public homepage visible in the app header */
+.topbar-left{display:flex;align-items:center;gap:14px;min-width:0}
+.topbar-home-link{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;color:var(--green);text-decoration:none;font-size:12px;font-weight:700;padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:white;transition:background .15s,border-color .15s}
+.topbar-home-link:hover{background:var(--soft);border-color:#d2e2d3}
+.topbar-home-link:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.topbar-divider{height:24px;width:1px;background:var(--line);flex-shrink:0}
+@media(max-width:700px){.topbar{padding:0 16px}.topbar-left{gap:9px}.topbar-home-link{font-size:11px;padding:8px 9px;gap:5px}.topbar-divider{display:none}.crumb{display:none}.topbar-home-link span{display:inline}}
