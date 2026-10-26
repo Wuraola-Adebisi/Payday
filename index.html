@@ -1,2 +1,68 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="theme-color" content="#f4f0ff"/><meta name="description" content="Money stuff, a little less stressful. Plan income, track spending, prepare for bills and save for what matters with Payday."/><title>Payday — Money stuff, a little less stressful</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"></head><body><div id="root"></div><script type="module" src="/src/main.tsx"></script></body></html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#6246ea" />
+    <meta name="description" content="Payday makes personal money planning feel more manageable. Plan your income, track spending, prepare for bills and work towards savings goals." />
+    <meta name="application-name" content="Payday" />
+    <meta name="author" content="Payday" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://www.payday.money/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Payday" />
+    <meta property="og:title" content="Payday — Money stuff, a little less stressful" />
+    <meta property="og:description" content="Plan your income, track spending, prepare for bills and make room for what matters." />
+    <meta property="og:url" content="https://www.payday.money/" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&h=630&q=85" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Friends spending time together and making memories" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Payday — Money stuff, a little less stressful" />
+    <meta name="twitter:description" content="Plan your income, track spending, prepare for bills and make room for what matters." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&h=630&q=85" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>Payday — Money stuff, a little less stressful</title>
+    <script>
+      (function () {
+        var pages = {
+          "/": { title: "Payday — Money stuff, a little less stressful", description: "Plan your income, track spending, prepare for bills and make room for what matters." },
+          "/about": { title: "About Payday — Money planning for real life", description: "Learn why Payday is built to make personal money planning feel clearer, more flexible and less intimidating." },
+          "/contact": { title: "Contact Payday — Questions and feedback", description: "Get in touch with Payday about product feedback, questions or help with the money planner." },
+          "/terms": { title: "Terms of Service — Payday", description: "Read the terms for using Payday's personal money planning tools." },
+          "/privacy": { title: "Privacy Policy — Payday", description: "Understand how Payday handles information you enter into its personal money planner." },
+          "/legal": { title: "Legal Information — Payday", description: "Important information about Payday's money planning tools and their intended use." },
+          "/app": { title: "Money Planner — Payday", description: "Organise your income, expenses, bills and savings goals in your Payday planner." }
+        };
+        function updateMetadata() {
+          var path = window.location.pathname.replace(/\\/+$/, "") || "/";
+          if (path.indexOf("/app/") === 0) path = "/app";
+          var data = pages[path] || pages["/"];
+          document.title = data.title;
+          var description = document.querySelector('meta[name="description"]');
+          if (description) description.setAttribute("content", data.description);
+          var canonical = document.querySelector('link[rel="canonical"]');
+          if (canonical) canonical.setAttribute("href", "https://www.payday.money" + (path === "/" ? "/" : path));
+          [["og:title", data.title], ["og:description", data.description], ["og:url", "https://www.payday.money" + (path === "/" ? "/" : path)], ["twitter:title", data.title], ["twitter:description", data.description]].forEach(function (entry) {
+            var node = document.querySelector('meta[property="' + entry[0] + '"]') || document.querySelector('meta[name="' + entry[0] + '"]');
+            if (node) node.setAttribute("content", entry[1]);
+          });
+        }
+        updateMetadata();
+        window.addEventListener("popstate", updateMetadata);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
