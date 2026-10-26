@@ -1,0 +1,14 @@
+{
+  "name": "payday-aws-backend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "AWS Lambda handlers for Payday's authenticated data API",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.850.0",
+    "@aws-sdk/lib-dynamodb": "^3.850.0"
+  }
+}
