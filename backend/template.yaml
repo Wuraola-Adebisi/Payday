@@ -70,6 +70,7 @@ Resources:
         AllowMethods: "'GET,PUT,OPTIONS'"
       Auth:
         DefaultAuthorizer: PaydayCognitoAuthorizer
+        AddDefaultAuthorizerToCorsPreflight: false
         Authorizers:
           PaydayCognitoAuthorizer:
             UserPoolArn: !GetAtt PaydayUserPool.Arn
