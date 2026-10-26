@@ -30,3 +30,10 @@ npm run build
 ## Scope
 
 Payday is a planning and educational tool. It does not connect to bank accounts, move money, or provide regulated financial advice. Figures are based on data entered by the user. This first version stores data in the current browser and does not sync across devices.
+
+
+## Public website
+
+The public marketing website is served at `/` and includes the homepage, product walkthrough, About, Contact, Terms of Service, Privacy Policy, and Legal Information pages. The personal finance planner is available at `/app`.
+
+Before publishing, replace the contact page's placeholder support email with a real monitored address, and have the Terms and Privacy Policy reviewed against the product's final ownership, jurisdiction, hosting, and data practices. The policy currently reflects browser-local storage and third-party hosted fonts/images; update it if the architecture changes.
