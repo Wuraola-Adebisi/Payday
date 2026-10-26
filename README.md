@@ -1,39 +1,30 @@
 # Payday
 
-A personal money planner for people with regular salaries and people with irregular income. Plan a pay period, track money in and out, keep upcoming bills visible, and work toward savings goals.
+Payday is a personal money planner that helps people make sense of their income, everyday spending, upcoming bills, and savings goals.
 
-## Features
+Money does not always arrive or leave on a neat schedule. Some people earn a regular salary, while others rely on freelance work, side hustles, or income that changes from month to month. Payday is designed to help people organise their money around the way they actually earn and live.
 
-- Five connected views: Overview, Salary planner, Expenses, Bills & calendar, and Goals & insights.
-- Configurable income frequency: monthly, weekly, biweekly, or irregular.
-- Editable category allocations with an over-budget check.
-- Income and expense tracking, search, category filtering, editing, and deletion.
-- Bills with due dates, recurring/one-off labels, payment status, and a calendar view.
-- Savings goals with target dates, progress tracking, and contributions.
-- NGN, USD, GBP, GHS, and KES display currencies.
-- Responsive desktop and mobile layout.
-- Data persists in the current browser using localStorage.
+## What Payday helps you do
 
-## Run locally
+- **Understand your money:** See your income and spending together so you can get a clearer picture of where things stand.
+- **Plan your pay:** Create a spending plan that reflects your income and priorities.
+- **Keep up with expenses:** Record money coming in and going out, and review entries by category.
+- **Stay ahead of bills:** Keep due dates and payment status visible, with a calendar to help you look ahead.
+- **Work towards goals:** Set savings targets, track your progress, and see how much further you have to go.
+- **Make the plan your own:** Choose from supported currencies and adjust your plan as your circumstances change.
 
-```bash
-npm install
-npm run dev
-```
+## Who Payday is for
 
-## Build
+Payday is for anyone who wants a clearer view of their money without making budgeting feel like a second job. It can be useful whether you receive a monthly salary, get paid weekly, earn irregular income, or combine several sources of income.
 
-```bash
-npm run build
-```
+## The idea behind Payday
 
-## Scope
+A useful money plan should help you understand what needs attention, prepare for what is coming, and make more deliberate decisions about what remains. It should also leave room for the things that matter to you.
 
-Payday is a planning and educational tool. It does not connect to bank accounts, move money, or provide regulated financial advice. Figures are based on data entered by the user. This first version stores data in the current browser and does not sync across devices.
+Payday brings those everyday decisions into one place, with a focus on clarity, flexibility, and real life.
 
+## Looking ahead
 
-## Public website
+Payday is exploring AI-assisted features that may help people better understand their finances and think through their options. These capabilities are still being developed and are not currently available as part of the planner.
 
-The public marketing website is served at `/` and includes the homepage, product walkthrough, About, Contact, Terms of Service, Privacy Policy, and Legal Information pages. The personal finance planner is available at `/app`.
-
-Before publishing, replace the contact page's placeholder support email with a real monitored address, and have the Terms and Privacy Policy reviewed against the product's final ownership, jurisdiction, hosting, and data practices. The policy currently reflects browser-local storage and third-party hosted fonts/images; update it if the architecture changes.
+Payday is a planning tool, not a bank or a financial adviser. The information it shows depends on the details entered by the user and should be checked against actual balances and obligations before making financial decisions.
