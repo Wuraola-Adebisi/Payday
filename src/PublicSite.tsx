@@ -5,7 +5,7 @@ type PublicPage = 'home' | 'about' | 'contact' | 'terms' | 'privacy' | 'legal' |
 const pages: Record<Exclude<PublicPage,'home'>,{title:string;intro:string}> = {
   about:{title:'Money is personal. Your plan should be too.',intro:'Payday is built around a simple idea: managing money should feel more possible, not more intimidating.'},
   contact:{title:'We’re listening.',intro:'Questions, ideas, or something that could work better? Send a note. We want Payday to be useful in real life.'},
-  terms:{title:'Terms of Service',intro:'The terms that apply when you use Payday's personal money planning tools.'},
+  terms:{title:'Terms of Service',intro:"The terms that apply when you use Payday's personal money planning tools."},
   privacy:{title:'Privacy Policy',intro:'Your financial information is personal. This policy explains what information the planner handles and how it is used.'},
   legal:{title:'Legal information',intro:'Important information about Payday, its scope, and how to use it responsibly.'},
   ai:{title:'A more thoughtful money plan is on the way.',intro:'Payday is exploring AI-assisted tools designed to help you understand your money, think through your options, and plan with more confidence. These capabilities are in development, not available in the planner yet.'}
