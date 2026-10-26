@@ -253,3 +253,65 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid 
 .public-site .ai-page-cta p{color:#e2dcff;margin:0;max-width:570px;font-size:15px;line-height:1.7}
 .public-site .ai-disclaimer{font-size:13px;line-height:1.7;color:#827b98;margin-top:24px}
 @media(max-width:720px){.public-site .ai-teaser{grid-template-columns:1fr;padding:62px 19px 35px;gap:15px}.public-site .ai-teaser h2{font-size:39px}.public-site .ai-teaser-copy>p{font-size:16px}.public-site .ai-teaser-orbit{min-height:285px}.public-site .ai-orbit-ring{width:240px;height:240px}.public-site .ai-orbit-ring-two{width:185px;height:185px}.public-site .ai-orbit-core{width:112px;height:112px;font-size:38px}.public-site .ai-chip-one{left:0;top:20px}.public-site .ai-chip-two{right:0;top:85px}.public-site .ai-chip-three{left:5%;bottom:14px}.public-site .ai-capability-grid{grid-template-columns:1fr}.public-site .ai-capability-card{min-height:0;padding:22px}.public-site .ai-capability-card h3{font-size:23px}.public-site .ai-page-cta{align-items:flex-start;flex-direction:column;padding:23px}.public-site .ai-page-cta h2{font-size:25px}}
+
+/* Motion system: scroll reveals, tactile hover states, and accessible reduced motion. */
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+.public-site .motion-reveal{transition:opacity .72s cubic-bezier(.2,.7,.2,1),transform .72s cubic-bezier(.2,.7,.2,1);transition-delay:var(--reveal-delay,0ms);will-change:opacity,transform}
+.motion-ready .public-site .motion-reveal:not(.is-visible){opacity:0;transform:translateY(28px) scale(.99)}
+.public-site .life-card,.public-site .demo-card,.public-site .ai-capability-card{transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+.public-site .life-card:hover,.public-site .demo-card:hover,.public-site .ai-capability-card:hover{transform:translateY(-7px);box-shadow:0 22px 50px #211b3514;border-color:#c9bcff}
+.public-site .site-cta,.public-site .header-login,.public-site .hero-text-link,.public-site .demo-link{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
+.public-site .site-cta:hover{transform:translateY(-3px);box-shadow:0 9px 24px #6246ea26}
+.public-site .site-cta:active{transform:translateY(0) scale(.98)}
+.public-site .site-header{transition:box-shadow .25s ease,background-color .25s ease}
+.public-site .site-header:focus-within{box-shadow:0 8px 25px #211b350c}
+.public-site .hero-photo img,.public-site .feature-visual>img,.public-site .illustration-goal img{transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .4s ease}
+.public-site .hero-photo:hover img,.public-site .feature-visual:hover>img,.public-site .illustration-goal:hover img{transform:scale(1.045);filter:saturate(1.08)}
+.public-site .ai-orbit-ring-one{animation:orbit-turn 24s linear infinite}
+.public-site .ai-orbit-ring-two{animation:orbit-turn 32s linear infinite reverse}
+.public-site .ai-orbit-core{animation:core-float 5s ease-in-out infinite}
+.public-site .ai-orbit-chip{animation:chip-float 6s ease-in-out infinite}
+.public-site .ai-chip-two{animation-delay:-2s}.public-site .ai-chip-three{animation-delay:-4s}
+@keyframes orbit-turn{to{transform:rotate(360deg)}}
+@keyframes core-float{0%,100%{translate:0 0;rotate:-7deg}50%{translate:0 -8px;rotate:-3deg}}
+@keyframes chip-float{0%,100%{translate:0 0}50%{translate:0 -7px}}
+.public-site .ticker-strip{overflow:hidden}
+.public-site .ticker-strip>div{width:max-content;animation:ticker-travel 32s linear infinite}
+.public-site .ticker-strip:hover>div{animation-play-state:paused}
+@keyframes ticker-travel{from{transform:translateX(0)}to{transform:translateX(-35%)}}
+.public-site .scenario-section{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(35px,7vw,90px);padding:95px max(32px,calc((100vw - 1150px)/2));background:#f2edff}
+.public-site .scenario-copy h2{font-family:'Space Grotesk';font-size:clamp(38px,4.5vw,56px);line-height:1.05;letter-spacing:-.045em;margin:0 0 20px;color:#211b35}
+.public-site .scenario-copy h2 em{font-style:normal;color:#6246ea}
+.public-site .scenario-copy>p{font-size:16px;line-height:1.8;color:#625b77;max-width:500px}
+.public-site .scenario-slider-wrap{margin-top:30px}
+.public-site .scenario-slider-label{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:18px}
+.public-site .scenario-slider-label label{font-size:14px;font-weight:700;color:#211b35}
+.public-site .scenario-slider-label strong{font-family:'Space Grotesk';font-size:clamp(20px,2.4vw,29px);color:#6246ea;white-space:nowrap}
+.public-site .scenario-slider{appearance:none;width:100%;height:8px;border-radius:99px;background:linear-gradient(90deg,#6246ea,#b6a7ff);outline:none;cursor:ew-resize}
+.public-site .scenario-slider::-webkit-slider-thumb{appearance:none;width:24px;height:24px;border-radius:50%;background:#d9ff55;border:4px solid #6246ea;box-shadow:0 3px 10px #211b3525}
+.public-site .scenario-slider::-moz-range-thumb{width:17px;height:17px;border-radius:50%;background:#d9ff55;border:4px solid #6246ea;box-shadow:0 3px 10px #211b3525}
+.public-site .scenario-range{display:flex;justify-content:space-between;font-size:12px;color:#827b98;margin-top:9px}
+.public-site .scenario-copy .scenario-footnote{font-size:13px;color:#827b98;margin-top:18px}
+.public-site .scenario-results{padding:27px;border:1px solid #e4ddf4;background:#fffdfb;border-radius:24px;box-shadow:0 24px 65px #6246ea13}
+.public-site .scenario-results-top{display:flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.1em;font-weight:800;color:#827b98}
+.public-site .scenario-live-dot{width:8px;height:8px;border-radius:50%;background:#6246ea;box-shadow:0 0 0 4px #6246ea17}
+.public-site .scenario-total{font-family:'Space Grotesk';font-size:clamp(30px,4vw,42px);font-weight:700;letter-spacing:-.04em;color:#211b35;padding:25px 0 20px;border-bottom:1px solid #e9e2f8}
+.public-site .scenario-total small{display:block;font-family:'DM Sans';font-size:13px;font-weight:500;letter-spacing:0;color:#827b98;margin-top:3px}
+.public-site .scenario-row{display:grid;grid-template-columns:12px minmax(0,1fr) auto;align-items:center;gap:5px 12px;padding:17px 0;border-bottom:1px solid #f0ebf7}
+.public-site .scenario-swatch{width:11px;height:11px;border-radius:4px;grid-row:1}
+.public-site .scenario-swatch-purple{background:#6246ea}.public-site .scenario-swatch-coral{background:#ff896b}.public-site .scenario-swatch-lime{background:#a3c92d}
+.public-site .scenario-row>div:nth-child(2){display:grid;gap:3px}
+.public-site .scenario-row strong{font-size:14px;color:#211b35}.public-site .scenario-row small{font-size:12px;color:#827b98}
+.public-site .scenario-row>b{font-size:14px;color:#211b35;white-space:nowrap}
+.public-site .scenario-track{grid-column:2/4;height:6px;background:#f0ebf7;border-radius:99px;overflow:hidden;margin-top:6px}
+.public-site .scenario-track span{display:block;height:100%;border-radius:99px;transition:width .35s ease}
+.public-site .scenario-row:nth-of-type(3) .scenario-track span{background:#6246ea}.public-site .scenario-row:nth-of-type(4) .scenario-track span{background:#ff896b}.public-site .scenario-row:nth-of-type(5) .scenario-track span{background:#a3c92d}
+.public-site .scenario-results-note{background:#f5f1ff;border-radius:12px;padding:13px 15px;margin-top:18px;color:#625b77;font-size:12px;line-height:1.7}
+.public-site .info-content details{border-bottom:1px solid #e4ddf4;padding:18px 0}
+.public-site .info-content details summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:15px;font-weight:700;color:#211b35}
+.public-site .info-content details summary::-webkit-details-marker{display:none}
+.public-site .info-content details summary::after{content:'+';font-size:23px;line-height:1;color:#6246ea;transition:transform .2s ease}
+.public-site .info-content details[open] summary::after{content:'−';transform:rotate(180deg)}
+.public-site .info-content details p{margin:13px 0 0;font-size:15px;line-height:1.8}
+@media(max-width:720px){.public-site .scenario-section{grid-template-columns:1fr;padding:65px 19px;gap:28px}.public-site .scenario-results{padding:20px}.public-site .scenario-row{gap:5px 9px}.public-site .scenario-row>b{font-size:13px}.public-site .scenario-slider-label{flex-direction:column;gap:8px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.public-site *, .public-site *::before,.public-site *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.motion-ready .public-site .motion-reveal:not(.is-visible){opacity:1;transform:none}}
