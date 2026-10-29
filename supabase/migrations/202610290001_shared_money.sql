@@ -77,7 +77,11 @@ as $$ select exists (select 1 from public.shared_members m where m.space_id = ta
 
 create or replace function public.shared_expense_space(target_expense uuid)
 returns uuid language sql stable security definer set search_path = public
-as $$ select e.space_id from public.shared_expenses e where e.id = target_expense; $$;
+as $ select e.space_id from public.shared_expenses e where e.id = target_expense; $;
+
+create or replace function public.is_space_creator(target_space uuid, target_user uuid default auth.uid())
+returns boolean language sql stable security definer set search_path = public
+as $ select exists (select 1 from public.shared_spaces s where s.id = target_space and s.created_by = target_user); $;
 
 create or replace function public.is_member_email(target_space uuid, target_user uuid)
 returns boolean language sql stable security definer set search_path = public
@@ -106,7 +110,7 @@ create policy "Owners or accepted invitees can join" on public.shared_members fo
   user_id = auth.uid()
   and email = lower(coalesce(auth.jwt() ->> 'email', ''))
   and (
-    exists (select 1 from public.shared_spaces s where s.id = space_id and s.created_by = auth.uid())
+    public.is_space_creator(space_id, auth.uid())
     or exists (select 1 from public.shared_invitations i where i.space_id = shared_members.space_id and i.email = lower(coalesce(auth.jwt() ->> 'email', '')) and i.accepted_by = auth.uid() and i.accepted_at is not null)
   )
 );
