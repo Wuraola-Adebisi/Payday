@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { ArrowDownLeft, ArrowLeft, ArrowRight, ArrowUpRight, Bell, CalendarDays, Check, CircleHelp, Coffee, CreditCard, Gift, Home, LayoutDashboard, Lightbulb, Menu, MoreHorizontal, Pencil, Plus, ReceiptText, Printer, Search, Settings, ShoppingBag, Target, Trash2, TrendingUp, Wallet, X, Zap, Users } from 'lucide-react';
-import SharedMoney from './SharedMoney';
+import SharedMoney from './SharedMoneyLocal';
 import { openStyledExport } from './styledExport';
 
 type Frequency = 'Monthly' | 'Weekly' | 'Biweekly' | 'Irregular';
