@@ -169,3 +169,12 @@ drop policy if exists "Settlement creator can remove settlement" on public.share
 create policy "Settlement creator can remove settlement" on public.shared_settlements for delete to authenticated using (created_by = auth.uid());
 
 grant select, insert, update, delete on public.shared_spaces, public.shared_members, public.shared_invitations, public.shared_expenses, public.shared_expense_splits, public.shared_settlements to authenticated;
+
+revoke execute on function public.is_shared_member(uuid, uuid) from public, anon;
+revoke execute on function public.shared_expense_space(uuid) from public, anon;
+revoke execute on function public.is_space_creator(uuid, uuid) from public, anon;
+revoke execute on function public.is_member_email(uuid, uuid) from public, anon;
+grant execute on function public.is_shared_member(uuid, uuid) to authenticated;
+grant execute on function public.shared_expense_space(uuid) to authenticated;
+grant execute on function public.is_space_creator(uuid, uuid) to authenticated;
+grant execute on function public.is_member_email(uuid, uuid) to authenticated;
