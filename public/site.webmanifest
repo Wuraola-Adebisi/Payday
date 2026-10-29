@@ -1,12 +1,12 @@
 {
   "name": "Payday",
   "short_name": "Payday",
-  "description": "Shared household costs and personal money plans, in one place.",
+  "description": "Plan your spending, income, bills, savings and shared costs in one clear view.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#fffdfb",
-  "theme_color": "#6246ea",
+  "theme_color": "#f4b6a8",
   "icons": [
     {
       "src": "/favicon.svg",
