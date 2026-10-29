@@ -447,3 +447,9 @@ p { font-size: 16px !important; line-height: 1.7; }
   .receipt-details strong{font-size:9pt;text-align:right;overflow-wrap:anywhere}
   .receipt-footer{display:grid;gap:8px;margin-top:32px;padding-top:14px;border-top:1px solid #e2e5de;font-size:8pt;color:#737a70!important}
 }
+
+/* Keep transaction receipts aligned with Payday's violet and citrus identity. */
+@media print {
+  .receipt-mark{background:#6246ea!important;color:#d9ff55!important}
+  .receipt-dot,.receipt-kicker,.receipt-status{color:#6246ea!important}
+}
