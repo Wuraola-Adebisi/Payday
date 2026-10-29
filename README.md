@@ -1,46 +1,40 @@
 # Payday
 
-Payday is a personal money planner that helps people make sense of their income, everyday spending, upcoming bills, and savings goals.
+Payday brings personal and shared money management together. It helps people keep their own budgets and savings goals in view while organising the costs they share with partners, housemates, family or a household.
 
-Money does not always arrive or leave on a neat schedule. Some people earn a regular salary, while others rely on freelance work, side hustles, or income that changes from month to month. Payday is designed to help people organise their money around the way they actually earn and live.
+## Shared money
 
-## What Payday helps you do
+The local-first shared workspace supports:
+- Creating separate spaces for a household, couple, flatmates or another group.
+- Adding members by name and email label.
+- Recording shared expenses, choosing who paid, and splitting each expense equally among selected people.
+- Reviewing each member's running balance and suggested settlements.
+- Recording settlements after money has changed hands.
+- Exporting a branded statement with balances, expense splits, suggested settlements and settlement history.
 
-- **Understand your money:** See your income and spending together so you can get a clearer picture of where things stand.
-- **Plan your pay:** Create a spending plan that reflects your income and priorities.
-- **Keep up with expenses:** Record money coming in and going out, and review entries by category.
-- **Stay ahead of bills:** Keep due dates and payment status visible, with a calendar to help you look ahead.
-- **Work towards goals:** Set savings targets, track your progress, and see how much further you have to go.
-- **Make the plan your own:** Choose from supported currencies and adjust your plan as your circumstances change.
-- **Take your plan with you:** Print a clean copy of the current planner page or save it as a PDF. Individual transactions can also be printed as styled personal records.
+**Important:** the current shared workspace is stored in this browser on this device. Adding a person does not invite them or give them access from another device. There is no account sign-in, cloud sync, cross-device collaboration or payment processing in this version. The email field is used as a label only.
 
-## Who Payday is for
+## Personal money
 
-Payday is for anyone who wants a clearer view of their money without making budgeting feel like a second job. It can be useful whether you receive a monthly salary, get paid weekly, earn irregular income, or combine several sources of income.
+The existing personal planner remains available for:
+- Recording income and everyday spending.
+- Building a budget around your income and priorities.
+- Tracking bills, due dates and payment status.
+- Setting savings goals and monitoring progress.
+- Reviewing summaries and exporting styled reports and transaction records.
 
-## The idea behind Payday
+Personal planner data and shared-space data are stored separately in browser storage. They are not automatically merged.
 
-A useful money plan should help you understand what needs attention, prepare for what is coming, and make more deliberate decisions about what remains. It should also leave room for the things that matter to you.
+## Styled exports
 
-Payday brings those everyday decisions into one place, with a focus on clarity, flexibility, and real life.
+Payday generates its own branded report layouts for supported personal planner pages and the shared money ledger. From the report view, you can print or save as PDF, or download a standalone HTML copy. Print pagination and colour output can vary by browser and printer settings. Reports are personal records, not bank-issued statements or proof of payment.
 
 ## Current product status
 
-Payday is exploring AI-assisted money insights, described on the public AI page. These capabilities are not available in the planner yet. The current planner stores data in the browser on the device you use; account sign-in and cloud synchronisation are not available yet. Do not rely on the planner as your only record for important bills or balances.
+Payday stores personal and shared workspace records in local browser storage on the device you use. Browser data can be lost if site data is cleared or the device becomes unavailable, and records do not automatically appear on another device. Export important records and keep separate copies of critical bills and balances.
 
-Payday is a planning tool, not a bank or financial adviser. Its summaries depend on the information entered and should be checked against actual balances and obligations before making financial decisions.
+AI-assisted money insights are being explored but are not available in the planner. Payday does not connect to bank accounts, initiate payments or independently verify financial records. All balances depend on the information entered. Payday is a planning tool, not a bank or financial adviser.
 
+## Next product layer
 
-## Shared Money setup
-
-Payday includes an authenticated shared-expense workspace for partners, housemates and households. It supports shared spaces, email-bound invitation links, a shared expense ledger with equal per-person splits, member balances, and settlement records. Settlement entries record a payment after it happens; they do not move money.
-
-To enable the cloud-backed workflow:
-
-1. Create a Supabase project.
-2. In the Supabase SQL editor, run `supabase/migrations/202610290001_shared_money.sql`.
-3. Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` to your local environment and deployment environment. Use the project URL and the publishable/anon key only; never put a service-role key in frontend variables.
-4. Configure Supabase Auth email confirmation and your deployed redirect URLs. The app uses the `/app?invite=...` route for invitation links.
-5. Redeploy the app and test account creation, sign-in, invitation acceptance, access isolation between two unrelated accounts, expense splitting, and settlement calculations before launch.
-
-Without the environment variables and migration, the shared workspace displays setup instructions rather than pretending that cloud sharing is active. Existing personal-planner records remain separate and are not automatically uploaded into a shared space.
+Cloud accounts, real invitations, secure cross-device synchronisation, and shared household access controls are planned for a later iteration. The current MVP deliberately prioritises working core flows without requiring a backend.
