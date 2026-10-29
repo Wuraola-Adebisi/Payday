@@ -111,11 +111,14 @@ export default function SharedMoney() {
     if (!supabase || !user) return;
     const name = spaceName.trim();
     if (!name) throw new Error('Give your shared space a name.');
-    const { data: created, error } = await supabase.from('shared_spaces').insert({ name, currency, created_by: user.id }).select('id,name,currency,created_by').single();
+    const newSpaceId = crypto.randomUUID();
+    const { error } = await supabase.from('shared_spaces').insert({ id: newSpaceId, name, currency, created_by: user.id });
     if (error) throw error;
-    const { error: memberError } = await supabase.from('shared_members').insert({ space_id: created.id, user_id: user.id, email: user.email?.toLowerCase(), role: 'owner' });
+    const { error: memberError } = await supabase.from('shared_members').insert({ space_id: newSpaceId, user_id: user.id, email: user.email?.toLowerCase(), role: 'owner' });
     if (memberError) throw memberError;
-    setSpaces(prev => [...prev, created as Space]); setSpaceId(created.id); setSpaceName(''); setView('overview'); notify('Shared space created.');
+    const { data: created, error: readError } = await supabase.from('shared_spaces').select('id,name,currency,created_by').eq('id', newSpaceId).single();
+    if (readError) throw readError;
+    setSpaces(prev => [...prev, created as Space]); setSpaceId(newSpaceId); setSpaceName(''); setView('overview'); notify('Shared space created.');
   });
 
   const sendInvite = () => run(async () => {
