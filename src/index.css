@@ -394,3 +394,56 @@ p { font-size: 16px !important; line-height: 1.7; }
   .app .activity-meta { font-size: 13px; }
   .app .data-table { font-size: 13px; }
 }
+
+
+/* Print and PDF exports */
+.heading-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.print-receipt{display:none}
+@media print{
+  @page{size:auto;margin:14mm}
+  :root{color-scheme:light}
+  html,body,#root{background:#fff!important;color:#20251f!important;min-width:0!important;width:100%!important}
+  body{font-size:11pt!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .app{display:block!important;min-height:0!important;background:#fff!important}
+  .app:has(.print-receipt)>:not(.print-receipt){display:none!important}
+  .app:has(.print-receipt) .print-receipt{display:block!important}
+  .sidebar,.topbar,.mobile-nav,.app-footer,.heading-actions,.mobile-menu,.toast,.modal-backdrop,.filters button,.actions,.small-btn,.icon-btn,.text-link,.primary,.secondary,.top-actions,.notice button{display:none!important}
+  .main{display:block!important;min-width:0!important}
+  .content{max-width:none!important;margin:0!important;padding:0!important}
+  .page-heading{display:block!important;margin:0 0 18px!important;padding:0 0 15px!important;border-bottom:1px solid #d9ddd5!important}
+  .page-heading h1{font-size:25pt!important;color:#20251f!important}
+  .page-heading p{font-size:10pt!important;color:#60675e!important}
+  .eyebrow{color:#285e45!important}
+  .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .metric,.panel,.goal-tile{border:1px solid #e2e5de!important;border-radius:10px!important;box-shadow:none!important;break-inside:avoid!important;background:#fff!important}
+  .metric{padding:12px!important}
+  .metric-value{font-size:18pt!important;white-space:normal!important;overflow:visible!important}
+  .grid-two{grid-template-columns:1fr 1fr!important;gap:10px!important}
+  .panel{padding:14px!important;margin-bottom:10px!important}
+  .panel-heading h2{font-size:12pt!important}
+  .panel-heading p,.metric-note,.metric-top{font-size:8pt!important}
+  .data-table{width:100%!important;border-collapse:collapse!important}
+  .data-table th,.data-table td{font-size:8.5pt!important;padding:8px 5px!important;border-bottom:1px solid #e6e8e2!important;color:#20251f!important}
+  .data-table th:last-child,.data-table td:last-child{display:none!important}
+  .data-table thead{display:table-header-group}
+  tr,.activity-row,.goal-tile,.insight{break-inside:avoid!important}
+  .activity-row{padding:8px 0!important}
+  .calendar{break-inside:avoid!important}
+  .cal-cell{min-height:60px!important}
+  input,select{border:0!important;background:transparent!important;color:#20251f!important}
+  .print-receipt{max-width:680px!important;margin:0 auto!important;padding:0!important;color:#20251f!important}
+  .receipt-brand{display:flex;align-items:center;gap:10px;font:800 22pt Manrope,sans-serif;letter-spacing:-.05em;margin-bottom:35px}
+  .receipt-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#285e45!important;color:#fff!important}
+  .receipt-dot{color:#285e45!important}
+  .receipt-kicker{font-size:8pt;letter-spacing:.18em;font-weight:800;color:#285e45!important;margin:0 0 9px}
+  .print-receipt h1{font-size:27pt;line-height:1.15;margin:0 0 8px}
+  .receipt-intro{font-size:10pt;color:#737a70!important;margin-bottom:28px}
+  .receipt-amount{font:800 32pt Manrope,sans-serif;letter-spacing:-.05em;padding:24px 0 12px;border-top:1px solid #e2e5de;border-bottom:1px solid #e2e5de}
+  .receipt-status{display:flex;align-items:center;gap:7px;color:#285e45!important;font-size:9pt;font-weight:700;margin:14px 0 24px}
+  .receipt-details{border:1px solid #e2e5de;border-radius:12px;padding:6px 18px}
+  .receipt-details>div{display:flex;justify-content:space-between;gap:24px;padding:13px 0;border-bottom:1px solid #eceee9}
+  .receipt-details>div:last-child{border-bottom:0}
+  .receipt-details span{font-size:9pt;color:#737a70!important}
+  .receipt-details strong{font-size:9pt;text-align:right;overflow-wrap:anywhere}
+  .receipt-footer{display:grid;gap:8px;margin-top:32px;padding-top:14px;border-top:1px solid #e2e5de;font-size:8pt;color:#737a70!important}
+}
