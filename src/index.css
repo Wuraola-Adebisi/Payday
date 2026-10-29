@@ -337,3 +337,109 @@ p{ font-size: 16px !important; line-height: 1.7; }
   .receipt-mark{background:#6246ea!important;color:#d9ff55!important}
   .receipt-dot,.receipt-kicker,.receipt-status{color:#6246ea!important}
 }
+
+
+/* Navigation refresh: align the money workspace with the public Payday identity. */
+.app .sidebar {
+  background: var(--night-900, #211b35);
+  color: #fff;
+  border-right: 0;
+}
+.app .sidebar:after {
+  background: var(--violet-600, #6246ea);
+  opacity: .24;
+}
+.app .app-home-brand { color: #fff; }
+.app .app-home-brand .brand { color: #fff; }
+.app .app-home-brand .brand span { color: var(--lime-300, #d9ff55); }
+.app .app-home-brand .brand-mark {
+  background: var(--lime-300, #d9ff55);
+  color: var(--night-900, #211b35);
+  border-radius: 13px;
+  transform: rotate(-5deg);
+}
+.app .app-home-brand:hover .brand { color: var(--lime-300, #d9ff55); }
+.app .nav-label { color: #a69bbf; }
+.app .nav-item {
+  position: relative;
+  color: #c3bdd4;
+  border-radius: 12px;
+  transition: background-color .18s ease, color .18s ease, transform .18s ease;
+}
+.app .nav-item:hover {
+  color: #fff;
+  background: rgb(255 255 255 / 7%);
+}
+.app .nav-item.active {
+  color: #fff;
+  background: var(--violet-600, #6246ea);
+  box-shadow: 0 3px 0 var(--violet-800, #4931c2);
+}
+.app .nav-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 0 4px 4px 0;
+  background: var(--lime-300, #d9ff55);
+}
+.app .sidebar-bottom .nav-item { background: transparent; box-shadow: none; }
+.app .sidebar-bottom .nav-item:hover { background: rgb(255 255 255 / 7%); }
+.app .profile { border-top-color: rgb(255 255 255 / 15%); }
+.app .profile .avatar {
+  background: var(--lime-300, #d9ff55);
+  color: var(--night-900, #211b35);
+}
+.app .profile > div:last-child > div:first-child { color: #fff; }
+.app .profile > div:last-child > div:last-child { color: #c3bdd4 !important; }
+.app .topbar {
+  background: #fffdfb;
+  border-bottom-color: var(--line-200, #e4ddf4);
+}
+.app .topbar-home-link {
+  color: var(--violet-600, #6246ea);
+  border-color: var(--line-200, #e4ddf4);
+  border-radius: 12px;
+  background: #fffdfb;
+}
+.app .topbar-home-link:hover {
+  color: var(--violet-800, #4931c2);
+  background: var(--violet-100, #eee8ff);
+  border-color: #cfc4f8;
+}
+.app .topbar-home-link:focus-visible { outline-color: #a697ff; }
+.app .topbar-divider { background: var(--line-200, #e4ddf4); }
+.app .crumb { color: var(--grey-purple-700, #655d7d); }
+.app .crumb strong { color: var(--night-900, #211b35); }
+.app .top-actions select {
+  border-color: var(--line-200, #e4ddf4);
+  border-radius: 12px;
+  color: var(--night-900, #211b35);
+}
+.app .top-actions select:focus-visible { outline-color: #a697ff; }
+.app .mobile-nav {
+  background: #fffdfb;
+  border-top-color: var(--line-200, #e4ddf4);
+  box-shadow: 0 -8px 28px rgb(33 27 53 / 7%);
+}
+.app .mobile-nav button { color: #827b98; }
+.app .mobile-nav button.active {
+  color: var(--violet-600, #6246ea);
+  font-weight: 700;
+}
+.app .mobile-nav button.active svg { color: var(--violet-600, #6246ea); }
+.app .mobile-nav button:focus-visible {
+  outline: 3px solid #a697ff;
+  outline-offset: -2px;
+  border-radius: 10px;
+}
+@media (max-width: 700px) {
+  .app .topbar { background: #fffdfb; }
+  .app .topbar-home-link { border-radius: 10px; }
+  .app .topbar-home-link span { color: inherit; }
+}
+@media print {
+  .app .sidebar { background: #fff !important; }
+}
