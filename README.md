@@ -12,6 +12,7 @@ Money does not always arrive or leave on a neat schedule. Some people earn a reg
 - **Stay ahead of bills:** Keep due dates and payment status visible, with a calendar to help you look ahead.
 - **Work towards goals:** Set savings targets, track your progress, and see how much further you have to go.
 - **Make the plan your own:** Choose from supported currencies and adjust your plan as your circumstances change.
+- **Take your plan with you:** Print a clean copy of the current planner page or save it as a PDF. Individual transactions can also be printed as styled personal records.
 
 ## Who Payday is for
 
