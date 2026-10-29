@@ -46,7 +46,8 @@
           "/app": { title: "Your Money Plan | Payday", description: "Review your spending, income, bills, savings goals and shared costs in one place." }
         };
         function updateMetadata() {
-          var path = window.location.pathname.replace(/\\/+$/, "") || "/";
+          var path = window.location.pathname;
+          while (path.length > 1 && path.charAt(path.length - 1) === "/") path = path.slice(0, -1);
           if (path.indexOf("/app/") === 0) path = "/app";
           var data = pages[path] || pages["/"];
           document.title = data.title;
