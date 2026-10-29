@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { createClient, type SupabaseClient, type User } from '@supabase/supabase-js';
-import { ArrowDownLeft, ArrowLeftRight, Check, Copy, HeartHandshake, LogIn, LogOut, Mail, Plus, RefreshCw, ShieldCheck, Users, Wallet } from 'lucide-react';
+import { ArrowDownLeft, ArrowLeftRight, Check, Copy, HeartHandshake, LogIn, LogOut, Mail, Plus, RefreshCw, ShieldCheck, Users, Wallet, Printer } from 'lucide-react';
 import './shared-money.css';
+import { openStyledExport } from './styledExport';
 
 type Space = { id: string; name: string; currency: string; created_by: string };
 type Member = { user_id: string; email: string; role: string };
@@ -184,6 +185,49 @@ export default function SharedMoney() {
   const totalExpenses = expenses.reduce((sum, x) => sum + Number(x.amount), 0);
   const myBalance = balanceRows.find(x => x.user_id === user?.id)?.balance ?? 0;
   const currencyCode = selectedSpace?.currency ?? currency;
+  const exportSharedSpace = () => {
+    if (!selectedSpace) return;
+    const fmt = (value: number) => amount(value, currencyCode);
+    const displayDate = (value: string) => new Date(value + 'T12:00:00').toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
+    openStyledExport({
+      title: selectedSpace.name + ' shared money report',
+      subtitle: 'A printable snapshot of shared household expenses, member balances and settlements recorded in this space.',
+      type: 'Shared money statement',
+      currency: currencyCode,
+      summary: [
+        { label: 'Recorded shared spending', value: fmt(totalExpenses), detail: expenses.length + ' expenses in the ledger' },
+        { label: 'Members', value: String(members.length), detail: 'People in this shared space' },
+        { label: 'Open balances', value: String(debts.length), detail: 'Suggested transfers to settle recorded balances' }
+      ],
+      sections: [
+        {
+          title: 'Member balances',
+          description: 'Positive balances mean the member is owed money. Negative balances mean the member owes money.',
+          columns: [{ key: 'member', label: 'Member' }, { key: 'balance', label: 'Current balance', align: 'right' }, { key: 'position', label: 'Position' }],
+          rows: balanceRows.map(member => ({ member: member.user_id === user?.id ? 'You (' + member.email + ')' : member.email, balance: fmt(Math.abs(member.balance)), position: member.balance > 0.005 ? 'Owed money' : member.balance < -0.005 ? 'Owes money' : 'Settled' }))
+        },
+        {
+          title: 'Expense ledger',
+          description: 'Each entry reflects the total recorded cost and the member who logged payment. Shares are shown separately.',
+          columns: [{ key: 'date', label: 'Date' }, { key: 'expense', label: 'Expense' }, { key: 'category', label: 'Category' }, { key: 'paidBy', label: 'Paid by' }, { key: 'amount', label: 'Total', align: 'right' }, { key: 'shares', label: 'Split details' }],
+          rows: expenses.map(expense => ({ date: displayDate(expense.expense_date), expense: expense.title, category: expense.category, paidBy: expense.payer_email || 'Member', amount: fmt(Number(expense.amount)), shares: (expense.splits || []).map(split => (split.user_id === user?.id ? 'You' : split.email || 'Member') + ': ' + fmt(Number(split.amount))).join(' · ') || 'No split details' }))
+        },
+        {
+          title: 'Suggested settlements',
+          description: 'Suggestions are calculated from the recorded ledger. They are not payments.',
+          columns: [{ key: 'from', label: 'Pays' }, { key: 'to', label: 'Receives' }, { key: 'amount', label: 'Suggested amount', align: 'right' }],
+          rows: debts.map(debt => ({ from: debt.from === user?.id ? 'You' : members.find(member => member.user_id === debt.from)?.email || 'Member', to: debt.to === user?.id ? 'You' : members.find(member => member.user_id === debt.to)?.email || 'Member', amount: fmt(debt.amount) }))
+        },
+        {
+          title: 'Settlement history',
+          description: 'Payments recorded by members to reflect money that has already changed hands.',
+          columns: [{ key: 'date', label: 'Date' }, { key: 'payer', label: 'Paid by' }, { key: 'payee', label: 'Paid to' }, { key: 'amount', label: 'Amount', align: 'right' }, { key: 'note', label: 'Note' }],
+          rows: settlements.map(settlement => ({ date: displayDate(settlement.settled_on), payer: settlement.payer_id === user?.id ? 'You' : settlement.payer_email || 'Member', payee: settlement.payee_id === user?.id ? 'You' : settlement.payee_email || 'Member', amount: fmt(Number(settlement.amount)), note: settlement.note || '—' }))
+        }
+      ]
+    });
+  };
+
   const debts = useMemo(() => {
     const debtors = balanceRows.filter(x => x.balance < -0.005).map(x => ({ ...x, remaining: -x.balance }));
     const creditors = balanceRows.filter(x => x.balance > 0.005).map(x => ({ ...x, remaining: x.balance }));
@@ -206,7 +250,7 @@ export default function SharedMoney() {
     <div className="shared-topline"><span className="shared-icon"><Users size={19}/></span><span>PAYDAY / SHARED MONEY</span><span className="shared-top-spacer"/><span className="shared-account">{user.email}</span><button className="shared-quiet-button" onClick={() => void supabase.auth.signOut()}><LogOut size={14}/> Sign out</button></div>
     {inviteToken && <div className="shared-invite-banner"><div><strong>You have a shared-space invitation.</strong><span>Accept it to join the household using this account.</span></div><button className="shared-primary compact" onClick={() => void acceptInvite()} disabled={busy}>Accept invitation</button></div>}
     {message && <div className="shared-message shared-flash" role="status">{message}</div>}
-    <div className="shared-heading"><div><div className="shared-kicker">MAKE ROOM FOR SHARED LIFE</div><h1>Money is easier when everyone is on the same page.</h1><p>Keep household spending visible, split costs fairly and settle balances without mental maths.</p></div><button className="shared-quiet-button" onClick={() => { void loadSpaces(); void loadSpaceData(); void loadInvitations(); }}><RefreshCw size={14}/> Refresh</button></div>
+    <div className="shared-heading"><div><div className="shared-kicker">MAKE ROOM FOR SHARED LIFE</div><h1>Money is easier when everyone is on the same page.</h1><p>Keep household spending visible, split costs fairly and settle balances without mental maths.</p></div><div className="shared-heading-actions">{selectedSpace && <button className="shared-quiet-button" onClick={exportSharedSpace}><Printer size={14}/> Export styled report</button>}<button className="shared-quiet-button" onClick={() => { void loadSpaces(); void loadSpaceData(); void loadInvitations(); }}><RefreshCw size={14}/> Refresh</button></div></div>
     {invitations.length > 0 && <div className="shared-pending"><Mail size={17}/><div><strong>{invitations.length} invitation{invitations.length === 1 ? '' : 's'} waiting</strong><span>Open the private invitation link from the person who invited you to join.</span></div></div>}
     <div className="shared-workspace">
       <aside className="shared-space-rail"><div className="shared-section-label">YOUR SHARED SPACES</div>{spaces.map(s => <button key={s.id} className={'shared-space-choice ' + (s.id === spaceId ? 'active' : '')} onClick={() => { setSpaceId(s.id); setInviteLink(''); }}><span className="shared-space-avatar"><HeartHandshake size={16}/></span><span><strong>{s.name}</strong><small>{s.currency} · {members.length || 'Shared'} members</small></span></button>)}{!spaces.length && <p className="shared-empty-small">Your shared spaces will appear here.</p>}<div className="shared-create-space"><strong>Start a shared space</strong><input value={spaceName} onChange={e => setSpaceName(e.target.value)} placeholder="e.g. Our household"/><select value={currency} onChange={e => setCurrency(e.target.value)}><option value="NGN">Nigerian naira (NGN)</option><option value="USD">US dollar (USD)</option><option value="GBP">Pound sterling (GBP)</option><option value="GHS">Ghanaian cedi (GHS)</option><option value="KES">Kenyan shilling (KES)</option><option value="EUR">Euro (EUR)</option></select><button className="shared-primary" onClick={() => void createSpace()} disabled={busy}><Plus size={15}/> Create space</button></div></aside>
