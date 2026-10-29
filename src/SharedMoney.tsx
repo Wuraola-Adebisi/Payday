@@ -41,6 +41,7 @@ export default function SharedMoney() {
   const [expenseDate, setExpenseDate] = useState(today());
   const [paidBy, setPaidBy] = useState('');
   const [selectedPeople, setSelectedPeople] = useState<string[]>([]);
+  const [splitMode, setSplitMode] = useState<'equal' | 'custom'>('equal');
   const [expenseNote, setExpenseNote] = useState('');
   const [settleTo, setSettleTo] = useState('');
   const [settleAmount, setSettleAmount] = useState('');
