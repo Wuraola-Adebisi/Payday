@@ -29,3 +29,18 @@ Payday brings those everyday decisions into one place, with a focus on clarity, 
 Payday is exploring AI-assisted money insights, described on the public AI page. These capabilities are not available in the planner yet. The current planner stores data in the browser on the device you use; account sign-in and cloud synchronisation are not available yet. Do not rely on the planner as your only record for important bills or balances.
 
 Payday is a planning tool, not a bank or financial adviser. Its summaries depend on the information entered and should be checked against actual balances and obligations before making financial decisions.
+
+
+## Shared Money setup
+
+Payday includes an authenticated shared-expense workspace for partners, housemates and households. It supports shared spaces, email-bound invitation links, a shared expense ledger with equal per-person splits, member balances, and settlement records. Settlement entries record a payment after it happens; they do not move money.
+
+To enable the cloud-backed workflow:
+
+1. Create a Supabase project.
+2. In the Supabase SQL editor, run `supabase/migrations/202610290001_shared_money.sql`.
+3. Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` to your local environment and deployment environment. Use the project URL and the publishable/anon key only; never put a service-role key in frontend variables.
+4. Configure Supabase Auth email confirmation and your deployed redirect URLs. The app uses the `/app?invite=...` route for invitation links.
+5. Redeploy the app and test account creation, sign-in, invitation acceptance, access isolation between two unrelated accounts, expense splitting, and settlement calculations before launch.
+
+Without the environment variables and migration, the shared workspace displays setup instructions rather than pretending that cloud sharing is active. Existing personal-planner records remain separate and are not automatically uploaded into a shared space.
