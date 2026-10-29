@@ -150,6 +150,7 @@ export default function SharedMoney() {
     const total = Number(expenseAmount);
     if (!expenseTitle.trim() || !Number.isFinite(total) || total <= 0) throw new Error('Enter an expense description and an amount greater than zero.');
     const participants = Array.from(new Set([user.id, ...selectedPeople]));
+    if (splitMode === 'custom') throw new Error('Custom splits are coming in a follow-up. Choose equal splitting for now.');
     const { data: expense, error } = await supabase.from('shared_expenses').insert({ space_id: spaceId, title: expenseTitle.trim(), amount: total, category: expenseCategory, expense_date: expenseDate, paid_by: paidBy || user.id, created_by: user.id, note: expenseNote.trim() || null }).select('id').single();
     if (error) throw error;
     const share = Math.round((total / participants.length) * 100) / 100;
