@@ -3,7 +3,6 @@
 ## Product copy and experience
 - [x] Plain-language positioning for income planning, spending, bills and savings goals.
 - [x] Messaging for both regular and irregular earners.
-- [x] AI remains part of Payday’s public product positioning, with a dedicated page explaining planned capabilities and their current development status.
 - [x] Marketing figures and example bill dates labelled as illustrative.
 - [x] New planner defaults contain no pre-filled transactions, bills or savings goals.
 - [x] Planner empty states and placeholder identity improved.
@@ -11,7 +10,7 @@
 - [x] SEO and social metadata updated.
 
 ## Current product limitations
-- Planner persistence remains browser local storage. Account sign-in, cloud synchronisation, cross-device recovery and AI processing are not available.
+- Planner persistence remains browser local storage. Account sign-in, cloud synchronisation, and cross-device recovery are not available.
 - Existing browser profiles may retain older saved data, including sample records. Changing defaults does not automatically clear existing local storage.
 - Cloud recovery and built-in export are not available. Keep a separate record of critical payment obligations.
 

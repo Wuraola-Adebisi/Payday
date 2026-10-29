@@ -1,0 +1,71 @@
+/* Design tokens. Primitives first, then roles. New code uses the role tokens only. */
+:root {
+  /* primitives */
+  --violet-600: #6246ea;
+  --violet-800: #4931c2;
+  --violet-100: #eee8ff;
+  --violet-50: #f4f0ff;
+  --lime-300: #d9ff55;
+  --lime-100: #eaffb8;
+  --coral-400: #ff896b;
+  --coral-100: #ffe8e0;
+  --night-900: #211b35;
+  --night-300: #c3bdd4;
+  --grey-purple-700: #655d7d;
+  --line-200: #e4ddf4;
+  --paper: #fffdfb;
+
+  /* color roles */
+  --color-ink: var(--night-900);
+  --color-ink-muted: var(--grey-purple-700);
+  --color-ground: var(--violet-50);
+  --color-surface: var(--paper);
+  --color-line: var(--line-200);
+  --color-accent: var(--violet-600);
+  --color-accent-deep: var(--violet-800);
+  --color-accent-soft: var(--violet-100);
+  --color-pop: var(--lime-300);
+  --color-pop-soft: var(--lime-100);
+  --color-warm: var(--coral-400);
+  --color-warm-soft: var(--coral-100);
+  --color-night: var(--night-900);
+  --color-on-night: #ffffff;
+  --color-on-night-muted: var(--night-300);
+
+  /* type */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.1875rem;
+  --text-h3: 1.25rem;
+  --text-h2: clamp(1.875rem, 1.3rem + 2vw, 2.875rem);
+  --text-h1: clamp(2.5rem, 1.5rem + 3.8vw, 4.5rem);
+
+  /* spacing, 4px base */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --section-y: clamp(56px, 8vw, 112px);
+  --content-width: 1200px;
+
+  /* shape and depth */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  --shadow-pop: 0 4px 0 var(--color-accent-deep);
+  --shadow-card: 0 14px 36px rgb(33 27 53 / 0.1);
+
+  /* motion */
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-micro: 160ms;
+  --dur-standard: 280ms;
+}

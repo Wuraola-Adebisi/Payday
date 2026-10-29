@@ -33,7 +33,7 @@ Payday generates its own branded report layouts for supported personal planner p
 
 Payday stores personal and shared workspace records in local browser storage on the device you use. Browser data can be lost if site data is cleared or the device becomes unavailable, and records do not automatically appear on another device. Export important records and keep separate copies of critical bills and balances.
 
-AI-assisted money insights are being explored but are not available in the planner. Payday does not connect to bank accounts, initiate payments or independently verify financial records. All balances depend on the information entered. Payday is a planning tool, not a bank or financial adviser.
+Payday does not connect to bank accounts, initiate payments or independently verify financial records. All balances depend on the information entered. Payday is a planning tool, not a bank or financial adviser.
 
 ## Next product layer
 
