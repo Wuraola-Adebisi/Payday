@@ -1560,7 +1560,7 @@ function ReceiptPrint({ transaction, fmt }: { transaction: Tx; fmt: (n: number) 
           <Wallet size={19} />
         </span>
         <span>
-          payday<span className="receipt-dot">.</span>
+          soma<span className="receipt-dot">.</span>
         </span>
       </div>
       <p className="receipt-kicker">TRANSACTION RECORD</p>
