@@ -1,4 +1,4 @@
-# Payday product and launch readiness
+# Soma product and launch readiness
 
 ## Product copy and experience
 - [x] Plain-language positioning for income planning, spending, bills and savings goals.
