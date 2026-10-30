@@ -16,7 +16,6 @@ import {
   Home,
   LayoutDashboard,
   Lightbulb,
-  Menu,
   MoreHorizontal,
   Pencil,
   Plus,
@@ -223,7 +222,6 @@ function Dashboard() {
   const [filter, setFilter] = useState('All categories');
   const [showPaid, setShowPaid] = useState(false);
   const [calendarView, setCalendarView] = useState(false);
-  const [mobileMenu, setMobileMenu] = useState(false);
   const [printReceipt, setPrintReceipt] = useState<Tx | null>(null);
   const [form, setForm] = useState(blankForm);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -558,7 +556,6 @@ function Dashboard() {
   );
   const go = (p: Page) => {
     setPage(p);
-    setMobileMenu(false);
   };
   const updatePlan = (p: Partial<Plan>) => setData((d) => ({ ...d, plan: { ...d.plan, ...p } }));
   const open = (kind: 'transaction' | 'bill' | 'goal', item?: Tx | Bill | Goal) => {
@@ -735,28 +732,38 @@ function Dashboard() {
           </div>
         </a>
         <div>
-          <div className="nav-label">YOUR MONEY</div>
-          <nav className="nav-list">
+          <nav className="nav-list" aria-label="Main">
             {nav.map((n) => (
               <button
                 key={n.label}
                 className={'nav-item ' + (page === n.label ? 'active' : '')}
+                aria-current={page === n.label ? 'page' : undefined}
                 onClick={() => go(n.label)}
               >
-                <n.icon size={17} />
-                {n.label}
+                <span className="nav-icon" aria-hidden="true">
+                  <n.icon size={17} />
+                </span>
+                {navShort[n.label] ?? n.label}
+                {n.label === 'Bills & calendar' && overdue.length > 0 && (
+                  <span className="nav-badge" role="img" aria-label={overdue.length + ' overdue'}>
+                    {overdue.length}
+                  </span>
+                )}
               </button>
             ))}
           </nav>
         </div>
         <div className="sidebar-bottom">
-          <div className="nav-label">YOUR SPACE</div>
           <button className="nav-item" onClick={() => setPrefsOpen(true)}>
-            <Settings size={17} />
+            <span className="nav-icon" aria-hidden="true">
+              <Settings size={17} />
+            </span>
             Preferences
           </button>
           <a className="nav-item" href="/">
-            <Home size={17} />
+            <span className="nav-icon" aria-hidden="true">
+              <Home size={17} />
+            </span>
             Back to homepage
           </a>
           <div className="profile">
@@ -780,13 +787,6 @@ function Dashboard() {
               <span>Back to homepage</span>
             </a>
             <span className="topbar-divider" aria-hidden="true"></span>
-            <button
-              className="icon-btn mobile-menu"
-              onClick={() => setMobileMenu(!mobileMenu)}
-              aria-label="Open navigation"
-            >
-              <Menu size={17} />
-            </button>
             <div className="crumb">
               Your money <span style={{ margin: '0 7px', color: 'var(--color-ink-muted)' }}>/</span>{' '}
               <strong>{page}</strong>
@@ -794,35 +794,19 @@ function Dashboard() {
           </div>
           <div className="top-actions">
             <button
-              className="icon-btn"
-              aria-label="Upcoming bills"
-              onClick={() => {
-                go('Bills & calendar');
-                setToast(
-                  upcoming.length
-                    ? 'You have ' + upcoming.length + ' upcoming unpaid bills.'
-                    : 'You are all caught up on bills.',
-                );
-              }}
+              className="icon-btn bell"
+              aria-label={overdue.length ? 'Bills, ' + overdue.length + ' overdue' : 'Bills'}
+              onClick={() => go('Bills & calendar')}
             >
               <Bell size={16} />
+              {overdue.length > 0 && (
+                <span className="nav-badge nav-badge-dot" aria-hidden="true">
+                  {overdue.length}
+                </span>
+              )}
             </button>
           </div>
         </header>
-        {mobileMenu && (
-          <div style={{ padding: 12, background: 'white' }}>
-            {nav.map((n) => (
-              <button
-                key={n.label}
-                className={'nav-item ' + (page === n.label ? 'active' : '')}
-                onClick={() => go(n.label)}
-              >
-                <n.icon size={16} />
-                {n.label}
-              </button>
-            ))}
-          </div>
-        )}
         <div className="content">
           {page !== 'Shared money' && (
             <div className="page-heading">
@@ -1318,10 +1302,18 @@ function Dashboard() {
           </footer>
         </div>
       </main>
-      <nav className="mobile-nav">
+      <nav className="mobile-nav" aria-label="Main">
         {nav.map((n) => (
-          <button key={n.label} className={page === n.label ? 'active' : ''} onClick={() => go(n.label)}>
+          <button
+            key={n.label}
+            className={page === n.label ? 'active' : ''}
+            aria-current={page === n.label ? 'page' : undefined}
+            onClick={() => go(n.label)}
+          >
             <n.icon />
+            {n.label === 'Bills & calendar' && overdue.length > 0 && (
+              <i className="mobile-dot" role="img" aria-label={overdue.length + ' overdue'} />
+            )}
             <span>
               {n.label === 'Salary planner'
                 ? 'Plan'
@@ -1701,6 +1693,11 @@ function Activity({
     </div>
   );
 }
+const navShort: Record<string, string> = {
+  'Salary planner': 'Salary plan',
+  'Bills & calendar': 'Bills',
+  'Goals & insights': 'Goals',
+};
 function Modal({
   open,
   onClose,

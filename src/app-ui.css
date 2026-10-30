@@ -68,3 +68,25 @@ dialog.modal-dialog .modal{width:100%;max-height:calc(100vh - 32px);overflow:aut
 .app-footer a{display:inline-flex;align-items:center;min-height:44px}
 
 .app{font-variant-numeric:tabular-nums}
+
+/* navigation */
+.app .sidebar{gap:var(--space-6)}
+.app .nav-list{gap:var(--space-1)}
+.app .nav-item{min-height:48px;padding:6px 10px 6px 6px;gap:var(--space-3);border-radius:var(--radius-md);font-family:var(--font-display);font-size:1rem;font-weight:600;letter-spacing:-.01em;color:var(--color-on-night-muted);transition:background var(--dur-micro) var(--ease-standard),color var(--dur-micro) var(--ease-standard)}
+.app .nav-item:hover{background:#39304f;color:#fff}
+.nav-icon{flex:none;width:36px;height:36px;display:grid;place-items:center;border-radius:var(--radius-sm);background:rgb(255 255 255 / .08)}
+.app .nav-item.active{background:var(--color-pop);color:var(--color-ink);box-shadow:0 3px 0 #a9cc2b}
+.app .nav-item.active .nav-icon{background:var(--color-ink);color:var(--color-pop)}
+.app .nav-item.active:hover{background:#e6ff8c}
+.nav-badge{margin-left:auto;display:grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:var(--radius-pill);background:var(--color-warm);color:var(--color-ink);font-family:var(--font-body);font-size:var(--text-sm);font-weight:700}
+.icon-btn.bell{position:relative}
+.nav-badge-dot{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;font-size:12px}
+.sidebar-bottom .nav-item{font-size:.9375rem}
+@media (max-width:760px){
+  .mobile-nav{background:var(--color-ink);border-radius:var(--radius-lg) var(--radius-lg) 0 0;padding:var(--space-2) var(--space-2) calc(var(--space-2) + env(safe-area-inset-bottom));gap:var(--space-1);box-shadow:0 -8px 24px rgb(33 27 53 / .18)}
+  .mobile-nav button{position:relative;min-height:56px;border-radius:var(--radius-md);font-size:12px;font-weight:700;color:var(--color-on-night-muted);gap:2px}
+  .mobile-nav button.active{background:var(--color-pop);color:var(--color-ink)}
+  .mobile-dot{position:absolute;top:7px;right:calc(50% - 20px);width:10px;height:10px;border-radius:50%;background:var(--color-warm);box-shadow:0 0 0 2px var(--color-ink)}
+  .mobile-nav button.active .mobile-dot{box-shadow:0 0 0 2px var(--color-pop)}
+  .content{padding-bottom:112px}
+}
