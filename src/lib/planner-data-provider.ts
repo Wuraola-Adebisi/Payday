@@ -45,7 +45,7 @@ const browserStorageProvider: PlannerDataProvider = {
     } catch (error) {
       // Browser storage can fail due to quota or browser privacy settings.
       // Surface this in development logs without crashing the planner.
-      console.error("Payday could not save planner data to browser storage.", error);
+      console.error("Soma could not save planner data to browser storage.", error);
     }
   },
 };
