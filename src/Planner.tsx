@@ -445,7 +445,7 @@ function Dashboard() {
       );
       sections.push({
         title: 'Bills and commitments',
-        description: 'Payment status reflects what you have marked in Payday.',
+        description: 'Payment status reflects what you have marked in Soma.',
         columns: [
           { key: 'bill', label: 'Bill' },
           { key: 'category', label: 'Category' },
@@ -470,7 +470,7 @@ function Dashboard() {
       );
       sections.push({
         title: 'Savings goals',
-        description: 'Progress based on the targets and contributions recorded in Payday.',
+        description: 'Progress based on the targets and contributions recorded in Soma.',
         columns: [
           { key: 'goal', label: 'Goal' },
           { key: 'category', label: 'Category' },
@@ -504,7 +504,7 @@ function Dashboard() {
               : page === 'Bills & calendar'
                 ? 'Bills and commitments'
                 : 'Savings goals',
-      subtitle: 'A clear, printable snapshot of the information you have recorded in Payday.',
+      subtitle: 'A clear, printable snapshot of the information you have recorded in Soma.',
       type: page,
       currency,
       summary,
@@ -700,7 +700,7 @@ function Dashboard() {
     );
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'payday-backup-' + today + '.json';
+    a.download = 'soma-backup-' + today + '.json';
     a.click();
     URL.revokeObjectURL(a.href);
   };
@@ -723,12 +723,12 @@ function Dashboard() {
   return (
     <div className="app">
       <aside className="sidebar">
-        <a className="brand-row app-home-brand" href="/" aria-label="Payday homepage">
+        <a className="brand-row app-home-brand" href="/" aria-label="Soma homepage">
           <div className="brand-mark">
             <Wallet size={18} />
           </div>
           <div className="brand">
-            payday<span>.</span>
+            soma<span>.</span>
           </div>
         </a>
         <div>
@@ -782,7 +782,7 @@ function Dashboard() {
       <main className="main">
         <header className="topbar">
           <div className="topbar-left">
-            <a className="topbar-home-link" href="/" aria-label="Back to Payday homepage">
+            <a className="topbar-home-link" href="/" aria-label="Back to Soma homepage">
               <ArrowLeft size={15} />
               <span>Back to homepage</span>
             </a>
@@ -869,7 +869,7 @@ function Dashboard() {
                       <span>
                         Day {cycle.day} of {cycle.total}
                       </span>
-                      <span>Payday {dateLabel(cycle.end)}</span>
+                      <span>Soma {dateLabel(cycle.end)}</span>
                     </div>
                     <dl className="cycle-sums">
                       <div>
@@ -890,7 +890,7 @@ function Dashboard() {
                     <summary>How is this worked out?</summary>
                     <p>
                       Income this cycle is your planned income or what you recorded since the cycle began,
-                      whichever is higher. Payday subtracts what you spent this cycle, then the unpaid bills
+                      whichever is higher. Soma subtracts what you spent this cycle, then the unpaid bills
                       due before your next payday, and divides the rest by the days left. Log a bill as an
                       expense when you pay it, so it counts as spending.
                     </p>
@@ -1274,7 +1274,7 @@ function Dashboard() {
           <footer className="app-footer">
             <div className="app-footer-top">
               <a className="app-footer-brand" href="/">
-                payday<span>.</span>
+                soma<span>.</span>
               </a>
               <p>Shared costs and personal plans, with your numbers and decisions in view.</p>
               <a className="app-footer-home" href="/">
@@ -1283,7 +1283,7 @@ function Dashboard() {
             </div>
             <div className="app-footer-links">
               <div>
-                <strong>Explore Payday</strong>
+                <strong>Explore Soma</strong>
                 <a href="/">Home</a>
                 <a href="/about">About</a>
                 <a href="/contact">Contact</a>
@@ -1296,7 +1296,7 @@ function Dashboard() {
               </div>
             </div>
             <div className="app-footer-bottom">
-              <span>© {new Date().getFullYear()} Payday. All rights reserved.</span>
+              <span>© {new Date().getFullYear()} Soma. All rights reserved.</span>
               <span>Money planning tools, not financial advice.</span>
             </div>
           </footer>
@@ -1565,13 +1565,13 @@ function ReceiptPrint({ transaction, fmt }: { transaction: Tx; fmt: (n: number) 
       </div>
       <p className="receipt-kicker">TRANSACTION RECORD</p>
       <h1>{transaction.type === 'income' ? 'Money received' : 'Payment record'}</h1>
-      <p className="receipt-intro">A personal record generated from your Payday planner.</p>
+      <p className="receipt-intro">A personal record generated from your Soma planner.</p>
       <div className="receipt-amount">
         {transaction.type === 'income' ? '+' : '−'}
         {fmt(transaction.amount)}
       </div>
       <div className="receipt-status">
-        <Check size={14} /> Recorded in Payday
+        <Check size={14} /> Recorded in Soma
       </div>
       <div className="receipt-details">
         <div>
@@ -1608,7 +1608,7 @@ function ReceiptPrint({ transaction, fmt }: { transaction: Tx; fmt: (n: number) 
         </div>
       </div>
       <div className="receipt-footer">
-        <span>PAYDAY · YOUR MONEY, MORE CLEARLY</span>
+        <span>SOMA · YOUR MONEY, MORE CLEARLY</span>
         <span>This is a personal record, not a bank-issued receipt or proof of payment.</span>
       </div>
     </article>
