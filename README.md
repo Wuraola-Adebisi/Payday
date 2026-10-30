@@ -1,6 +1,6 @@
-# Payday
+# Soma
 
-Payday brings personal and shared money management together. It helps people keep their own budgets and savings goals in view while organising the costs they share with partners, housemates, family or a household.
+Soma brings personal and shared money management together. It helps people keep their own budgets and savings goals in view while organising the costs they share with partners, housemates, family or a household.
 
 ## Shared money
 
@@ -27,13 +27,13 @@ Personal planner data and shared-space data are stored separately in browser sto
 
 ## Styled exports
 
-Payday generates its own branded report layouts for supported personal planner pages and the shared money ledger. From the report view, you can print or save as PDF, or download a standalone HTML copy. Print pagination and colour output can vary by browser and printer settings. Reports are personal records, not bank-issued statements or proof of payment.
+Soma generates its own branded report layouts for supported personal planner pages and the shared money ledger. From the report view, you can print or save as PDF, or download a standalone HTML copy. Print pagination and colour output can vary by browser and printer settings. Reports are personal records, not bank-issued statements or proof of payment.
 
 ## Current product status
 
-Payday stores personal and shared workspace records in local browser storage on the device you use. Browser data can be lost if site data is cleared or the device becomes unavailable, and records do not automatically appear on another device. Export important records and keep separate copies of critical bills and balances.
+Soma stores personal and shared workspace records in local browser storage on the device you use. Browser data can be lost if site data is cleared or the device becomes unavailable, and records do not automatically appear on another device. Export important records and keep separate copies of critical bills and balances.
 
-Payday does not connect to bank accounts, initiate payments or independently verify financial records. All balances depend on the information entered. Payday is a planning tool, not a bank or financial adviser.
+Soma does not connect to bank accounts, initiate payments or independently verify financial records. All balances depend on the information entered. Soma is a planning tool, not a bank or financial adviser.
 
 ## Next product layer
 
