@@ -222,7 +222,7 @@ export default function SharedMoney() {
           title: 'Settlement history',
           description: 'Payments recorded by members to reflect money that has already changed hands.',
           columns: [{ key: 'date', label: 'Date' }, { key: 'payer', label: 'Paid by' }, { key: 'payee', label: 'Paid to' }, { key: 'amount', label: 'Amount', align: 'right' }, { key: 'note', label: 'Note' }],
-          rows: settlements.map(settlement => ({ date: displayDate(settlement.settled_on), payer: settlement.payer_id === user?.id ? 'You' : settlement.payer_email || 'Member', payee: settlement.payee_id === user?.id ? 'You' : settlement.payee_email || 'Member', amount: fmt(Number(settlement.amount)), note: settlement.note || '—' }))
+          rows: settlements.map(settlement => ({ date: displayDate(settlement.settled_on), payer: settlement.payer_id === user?.id ? 'You' : settlement.payer_email || 'Member', payee: settlement.payee_id === user?.id ? 'You' : settlement.payee_email || 'Member', amount: fmt(Number(settlement.amount)), note: settlement.note || 'None' }))
         }
       ]
     });

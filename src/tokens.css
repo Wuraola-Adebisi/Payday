@@ -13,13 +13,13 @@
   --night-300: #c3bdd4;
   --grey-purple-700: #655d7d;
   --line-200: #e4ddf4;
-  --paper: #fffdfb;
+  --paper-50: #fffdfb;
 
   /* color roles */
   --color-ink: var(--night-900);
   --color-ink-muted: var(--grey-purple-700);
   --color-ground: var(--violet-50);
-  --color-surface: var(--paper);
+  --color-surface: var(--paper-50);
   --color-line: var(--line-200);
   --color-accent: var(--violet-600);
   --color-accent-deep: var(--violet-800);
@@ -28,6 +28,10 @@
   --color-pop-soft: var(--lime-100);
   --color-warm: var(--coral-400);
   --color-warm-soft: var(--coral-100);
+  --color-danger: #b4361f;
+  --color-danger-soft: #fff0eb;
+  --color-warning: #8a5a00;
+  --color-success: #1f7a4d;
   --color-night: var(--night-900);
   --color-on-night: #ffffff;
   --color-on-night-muted: var(--night-300);

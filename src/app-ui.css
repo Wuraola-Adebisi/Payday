@@ -1,0 +1,70 @@
+/* Planner UI additions. Role tokens only. */
+body:has(dialog[open]){overflow:hidden}
+dialog.modal-dialog{border:0;padding:0;background:transparent;width:min(100% - 24px,470px);max-width:none;max-height:none;overflow:visible}
+dialog.modal-dialog::backdrop{background:rgb(33 27 53 / .55)}
+dialog.modal-dialog .modal{width:100%;max-height:calc(100vh - 32px);overflow:auto;margin:0;background:var(--color-surface);border-radius:var(--radius-md)}
+.modal-subhead{font-family:var(--font-display);font-size:1.0625rem;margin:var(--space-5) 0 var(--space-1)}
+.field-error{margin:var(--space-1) 0 0;font-size:var(--text-sm);font-weight:700;color:var(--color-danger)}
+.field input[aria-invalid="true"]{border-color:var(--color-danger)}
+.field input,.field select,.filters input,.filters select{min-height:44px}
+
+.toast{display:flex;align-items:center;gap:var(--space-4);background:var(--color-night);font-size:var(--text-sm)}
+.toast-action{background:var(--color-pop);color:var(--color-ink);border-radius:var(--radius-sm);min-height:36px;padding:0 var(--space-3);font-weight:700;font-size:var(--text-sm)}
+.route-loading{min-height:60vh;display:grid;place-items:center;color:var(--color-ink-muted);font-size:var(--text-base)}
+
+/* page heading: a tool leads with the task */
+.page-heading{align-items:center}
+.page-heading h1{font-family:var(--font-display);font-size:clamp(1.625rem,1.2rem + 1.4vw,2.125rem);letter-spacing:-.03em;margin-bottom:var(--space-1)}
+.page-heading p{margin:0;font-size:var(--text-base);color:var(--color-ink-muted)}
+
+/* overview hero */
+.cycle-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--space-6);padding:var(--space-6);margin-bottom:var(--space-4);border-radius:var(--radius-lg);background:var(--color-accent);color:var(--color-on-night)}
+.cycle-main h2{font-family:var(--font-body);font-size:var(--text-base);font-weight:700;margin:0 0 var(--space-2);color:#e6e0ff}
+.cycle-number{font-family:var(--font-display);font-size:clamp(2.75rem,2rem + 3.4vw,4.5rem);line-height:1;letter-spacing:-.05em;font-weight:700;font-variant-numeric:tabular-nums;color:var(--color-pop);overflow-wrap:anywhere}
+.cycle-main p{margin:var(--space-3) 0 0;font-size:var(--text-lg);line-height:1.5;color:#f1edff}
+.cycle-side{align-self:end}
+.cycle-bar{height:10px;border-radius:var(--radius-pill);background:rgb(255 255 255 / .22);overflow:hidden}
+.cycle-bar i{display:block;height:100%;border-radius:inherit;background:var(--color-pop)}
+.cycle-bar-labels{display:flex;justify-content:space-between;gap:var(--space-3);margin-top:var(--space-2);font-size:var(--text-sm);color:#e6e0ff}
+.cycle-sums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-3);margin:var(--space-5) 0 0}
+.cycle-sums dt{font-size:var(--text-sm);color:#e6e0ff}
+.cycle-sums dd{margin:var(--space-1) 0 0;font-family:var(--font-display);font-size:1.25rem;font-weight:700;font-variant-numeric:tabular-nums}
+.cycle-how{grid-column:1 / -1;border-top:1px solid rgb(255 255 255 / .25);padding-top:var(--space-3);font-size:var(--text-sm)}
+.cycle-how summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:700;color:#fff}
+.cycle-how p{margin:var(--space-2) 0 0;max-width:70ch;line-height:1.6;color:#f1edff}
+.cycle-hero summary:focus-visible{outline:3px solid var(--color-pop);outline-offset:3px}
+.metric-grid-three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.notice-warn{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;margin:0 0 var(--space-4);background:var(--color-danger-soft);border-color:#f3c9bd;color:var(--color-danger);font-size:var(--text-sm);font-weight:700}
+
+/* first run */
+.setup{max-width:720px;margin-bottom:var(--space-5)}
+.setup h2{font-family:var(--font-display);font-size:1.5rem;letter-spacing:-.03em;margin:0 0 var(--space-1)}
+.setup .form-grid{margin-top:var(--space-5)}
+.setup-actions{margin-top:var(--space-5)}
+.setup-shared{margin:var(--space-5) 0 0}
+
+/* calendar month nav */
+.month-nav{display:flex;align-items:center;gap:var(--space-3);margin:var(--space-5) 0 var(--space-3)}
+.month-nav h3{font-family:var(--font-display);font-size:1.125rem;margin:0;min-width:9ch}
+
+@media (max-width:900px){
+  .cycle-hero{grid-template-columns:minmax(0,1fr);padding:var(--space-5)}
+  .metric-grid-three{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){
+  input,select,textarea{font-size:16px}
+  .page-heading{align-items:flex-start;flex-direction:column}
+  .cycle-sums{grid-template-columns:minmax(0,1fr)}
+  .toast{left:12px;right:12px;bottom:84px}
+}
+
+.form-grid{align-items:start}
+@media (max-width:760px){.mobile-nav{grid-template-columns:repeat(6,minmax(0,1fr))}.mobile-nav button{min-width:0}}
+
+/* hit areas: 44px targets, with the visible size of dense row buttons kept */
+.app .primary,.app .secondary,.app .nav-item,.app .text-link,.app .icon-btn,.app .topbar-home-link,.app .brand-row,.app .mobile-nav button,.toast-action{min-height:44px;min-width:44px}
+.app .small-btn{position:relative}
+.app .small-btn::after{content:"";position:absolute;inset:-7px}
+.app-footer a{display:inline-flex;align-items:center;min-height:44px}
+
+.app{font-variant-numeric:tabular-nums}

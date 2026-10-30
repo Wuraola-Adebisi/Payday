@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#f4b6a8" />
-    <meta name="description" content="Plan your spending, income, bills, savings and shared costs in one clear view. Payday helps you understand what is coming up and make a plan for your money." />
+    <meta name="description" content="Payday helps you manage personal budgets and shared household costs. Split expenses, track who paid, settle balances and keep bills and savings goals in view." />
     <meta name="application-name" content="Payday" />
     <meta name="author" content="Payday" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -15,39 +15,34 @@
     <link rel="manifest" href="/site.webmanifest" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Payday" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:title" content="Payday | Make a plan for your money" />
-    <meta property="og:description" content="Bring your spending, income, bills, savings and shared costs into one clear money plan." />
+    <meta property="og:title" content="Payday: split shared costs, plan your own money" />
+    <meta property="og:description" content="Manage shared expenses, split household costs, track balances and keep personal budgets and savings goals organised." />
     <meta property="og:url" content="https://www.payday.money/" />
-    <meta property="og:image" content="https://www.payday.money/og-image.png.png" />
-    <meta property="og:image:secure_url" content="https://www.payday.money/og-image.png.png" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&h=630&q=85" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Friends spending time together and making memories" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Payday | Make a plan for your money" />
-    <meta name="twitter:description" content="Bring your spending, income, bills, savings and shared costs into one clear money plan." />
-    <meta name="twitter:image" content="https://www.payday.money/og-image.png.png" />
-    <meta name="twitter:image:alt" content="Friends spending time together and making memories" />
+    <meta name="twitter:title" content="Payday: split shared costs, plan your own money" />
+    <meta name="twitter:description" content="Manage shared expenses, split household costs, track balances and keep personal budgets and savings goals organised." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&h=630&q=85" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <title>Payday | Make a plan for your money</title>
+    <title>Payday: split shared costs, plan your own money</title>
     <script>
       (function () {
         var pages = {
-          "/": { title: "Payday | Make a plan for your money", description: "Plan your spending, income, bills, savings and shared costs in one clear view. Payday helps you understand what is coming up and make a plan for your money." },
-          "/about": { title: "About Payday | Money planning for real life", description: "Learn how Payday helps you organise personal spending, income, bills, savings goals and shared household costs." },
-          "/contact": { title: "Contact Payday | Questions and feedback", description: "Contact Payday with product questions, feedback or requests for help with your money plan." },
-          "/terms": { title: "Terms of Service | Payday", description: "Read the terms that apply when using Payday's personal money planning tools." },
-          "/privacy": { title: "Privacy Policy | Payday", description: "Learn how Payday handles information used in personal money plans and shared-expense records." },
-          "/legal": { title: "Legal Information | Payday", description: "Important information about Payday's money planning tools and their intended use." },
-          "/app": { title: "Your Money Plan | Payday", description: "Review your spending, income, bills, savings goals and shared costs in one place." }
+          "/": { title: "Payday: split shared costs, plan your own money", description: "Manage shared expenses, split household costs, track balances and keep personal budgets and savings goals organised." },
+          "/about": { title: "About Payday: shared and personal money", description: "Learn how Payday helps households organise shared costs while keeping personal money plans in view." },
+          "/contact": { title: "Contact Payday | Questions and feedback", description: "Get in touch with Payday about product feedback, questions or help with the money planner." },
+          "/terms": { title: "Terms of Service | Payday", description: "Read the terms for using Payday's personal and shared money tools." },
+          "/privacy": { title: "Privacy Policy | Payday", description: "Understand how Payday stores personal planner and local shared-expense records." },
+          "/legal": { title: "Legal Information | Payday", description: "Important information about Payday's personal and shared money tools and their intended use." },
+          "/app": { title: "Money Management | Payday", description: "Track shared household costs, split expenses, review balances and organise personal money plans." }
         };
         function updateMetadata() {
-          var path = window.location.pathname;
-          while (path.length > 1 && path.charAt(path.length - 1) === "/") path = path.slice(0, -1);
+          var path = window.location.pathname.replace(/\/+$/, "") || "/";
           if (path.indexOf("/app/") === 0) path = "/app";
           var data = pages[path] || pages["/"];
           document.title = data.title;

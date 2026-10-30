@@ -109,7 +109,7 @@ function Home() {
             <h1>Split costs with your people. <span>Budget on your own.</span></h1>
             <p className="hm-lead">Log the rent and the groceries, see who paid, and settle up without the group chat math. Your own budget, bills and savings goals live in the same app, kept apart from the shared stuff.</p>
             <div className="hm-actions">
-              <a className="site-cta" href="/app">Start a shared space <ArrowRight size={17} /></a>
+              <a className="site-cta" href="/app#shared">Start a shared space <ArrowRight size={17} /></a>
               <a className="hm-link" href="#how-it-works">See how it works</a>
             </div>
             <p className="hm-fine">No sign-up. Your data stays in this browser.</p>
@@ -180,7 +180,7 @@ function Home() {
           <h2>Start with one shared bill.</h2>
           <p>Create a space, add the people and log your first expense.</p>
           <div className="hm-actions hm-actions-center">
-            <a className="site-cta site-cta-dark" href="/app">Start a shared space <ArrowRight size={17} /></a>
+            <a className="site-cta site-cta-dark" href="/app#shared">Start a shared space <ArrowRight size={17} /></a>
             <a className="hm-link hm-link-light" href="/app">Or plan your own money</a>
           </div>
         </div>

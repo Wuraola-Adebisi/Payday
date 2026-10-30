@@ -111,3 +111,7 @@
   .hm-row{animation:none}
   .hm-people-buttons button,.hm-faq summary::after{transition:none}
 }
+
+/* hit areas for the shared header and footer */
+.site-nav a,.site-brand,.site-footer a,.header-login{display:inline-flex;align-items:center;min-height:44px}
+.site-menu-btn{min-width:44px;min-height:44px}

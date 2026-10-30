@@ -38,3 +38,22 @@ Payday does not connect to bank accounts, initiate payments or independently ver
 ## Next product layer
 
 Cloud accounts, real invitations, secure cross-device synchronisation, and shared household access controls are planned for a later iteration. The current MVP deliberately prioritises working core flows without requiring a backend.
+
+## Run it
+
+```
+npm install
+npm run dev        # local development
+npm run build      # type-check and production build into dist/
+npm run preview    # serve the production build locally
+```
+
+Open `/app` for the planner. `/app#shared` opens Shared money directly.
+
+## Deploy
+
+The project deploys on Vercel. `vercel.json` rewrites every path to `index.html` and redirects the retired `/ai` page to `/`. After a deploy, load the live URL and confirm it shows the change before debugging anything else.
+
+## Design tokens
+
+`src/tokens.css` holds the primitives and the role tokens (`--color-*`, `--space-*`, `--radius-*`, `--shadow-*`). New styles use the role tokens. `src/index.css` still holds older planner styles that reference them, and they are being moved over gradually.
